@@ -207,6 +207,174 @@ import com.io7m.junreachable.UnreachableCodeException;
     throw new RangeCheckException(message);
   }
 
+  /**
+   * <p>
+   * Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * <code>in_lower</code> (named <code>lower_name</code>).
+   * </p>
+   * 
+   * @param x
+   *          The checked value
+   * @param in_lower
+   *          The lower bound
+   * @param x_name
+   *          The name of the checked value
+   * @param lower_name
+   *          The name of the lower bound
+   * @return x
+   */
+
+  public static long checkGreater(
+    final long x,
+    final String x_name,
+    final long in_lower,
+    final String lower_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(lower_name, "Lower bound name");
+
+    if (x > in_lower) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format(
+        "%s (%d) > %s (%d) == false",
+        x_name,
+        x,
+        lower_name,
+        in_lower);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
+   * Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * <code>in_lower</code> (named <code>lower_name</code>).
+   * </p>
+   * 
+   * @param x
+   *          The checked value
+   * @param in_lower
+   *          The lower bound
+   * @param x_name
+   *          The name of the checked value
+   * @param lower_name
+   *          The name of the lower bound
+   * @return x
+   */
+
+  public static BigInteger checkGreaterBig(
+    final BigInteger x,
+    final String x_name,
+    final BigInteger in_lower,
+    final String lower_name)
+  {
+    NullCheck.notNull(x, "Value");
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(in_lower, "Lower");
+    NullCheck.notNull(lower_name, "Lower bound name");
+
+    if (x.compareTo(in_lower) > 0) {
+      return x;
+    }
+
+    final String message =
+      String.format(
+        "%s (%s) > %s (%s) == false",
+        x_name,
+        x,
+        lower_name,
+        in_lower);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
+   * Assert that <code>x</code> (named <code>x_name</code>) is greater than or
+   * equal to <code>in_lower</code> (named <code>lower_name</code>).
+   * </p>
+   * 
+   * @param x
+   *          The checked value
+   * @param in_lower
+   *          The lower bound
+   * @param x_name
+   *          The name of x
+   * @param lower_name
+   *          The name of the lower bound
+   * @return x
+   */
+
+  public static long checkGreaterEqual(
+    final long x,
+    final String x_name,
+    final long in_lower,
+    final String lower_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(lower_name, "Lower bound name");
+
+    if (x >= in_lower) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format(
+        "%s (%d) >= %s (%d) == false",
+        x_name,
+        x,
+        lower_name,
+        in_lower);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
+   * Assert that <code>x</code> (named <code>x_name</code>) is greater than or
+   * equal to <code>in_lower</code> (named <code>lower_name</code>).
+   * </p>
+   * 
+   * @param x
+   *          The checked value
+   * @param in_lower
+   *          The lower bound
+   * @param x_name
+   *          The name of the checked value
+   * @param lower_name
+   *          The name of the lower bound
+   * @return x
+   */
+
+  public static BigInteger checkGreaterEqualBig(
+    final BigInteger x,
+    final String x_name,
+    final BigInteger in_lower,
+    final String lower_name)
+  {
+    NullCheck.notNull(x, "Value");
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(in_lower, "Lower");
+    NullCheck.notNull(lower_name, "Lower bound name");
+
+    if (x.compareTo(in_lower) >= 0) {
+      return x;
+    }
+
+    final String message =
+      String.format(
+        "%s (%s) >= %s (%s) == false",
+        x_name,
+        x,
+        lower_name,
+        in_lower);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
   private RangeCheck()
   {
     throw new UnreachableCodeException();

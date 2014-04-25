@@ -194,4 +194,191 @@ import com.io7m.jranges.RangeCheckException;
       BigInteger.ONE,
       (String) TestUtilities.actuallyNull());
   }
+
+  @Test(expected = RangeCheckException.class) public void testGreater_0()
+  {
+    RangeCheck.checkGreater(0L, "x", 0L, "lower");
+  }
+
+  @Test public void testGreater_1()
+  {
+    Assert.assertEquals(2L, RangeCheck.checkGreater(2L, "x", 1L, "lower"));
+  }
+
+  @Test(expected = RangeCheckException.class) public void testGreaterBig_0()
+  {
+    RangeCheck
+      .checkGreaterBig(BigInteger.ZERO, "x", BigInteger.ZERO, "lower");
+  }
+
+  @Test public void testGreaterBig_1()
+  {
+    Assert.assertEquals(BigInteger.ONE, RangeCheck.checkGreaterBig(
+      BigInteger.ONE,
+      "x",
+      BigInteger.ZERO,
+      "lower"));
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testGreaterEqual_0()
+  {
+    RangeCheck.checkGreaterEqual(0L, "x", 1L, "lower");
+  }
+
+  @Test public void testGreaterEqual_1()
+  {
+    Assert.assertEquals(
+      1L,
+      RangeCheck.checkGreaterEqual(1L, "x", 1L, "lower"));
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testGreaterEqualBig_0()
+  {
+    RangeCheck.checkGreaterEqualBig(
+      BigInteger.ZERO,
+      "x",
+      BigInteger.ONE,
+      "lower");
+  }
+
+  @Test public void testGreaterEqualBig_1()
+  {
+    Assert.assertEquals(BigInteger.ONE, RangeCheck.checkGreaterEqualBig(
+      BigInteger.ONE,
+      "x",
+      BigInteger.ONE,
+      "lower"));
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterEqualNull_0()
+  {
+    RangeCheck.checkGreaterEqual(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      1L,
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterEqualNull_1()
+  {
+    RangeCheck.checkGreaterEqual(
+      0L,
+      "x",
+      1L,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterEqualNullBig_0()
+  {
+    RangeCheck.checkGreaterEqualBig(
+      (BigInteger) TestUtilities.actuallyNull(),
+      "x",
+      BigInteger.ONE,
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterEqualNullBig_1()
+  {
+    RangeCheck.checkGreaterEqualBig(
+      BigInteger.ZERO,
+      (String) TestUtilities.actuallyNull(),
+      BigInteger.ONE,
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterEqualNullBig_2()
+  {
+    RangeCheck.checkGreaterEqualBig(
+      BigInteger.ZERO,
+      "x",
+      (BigInteger) TestUtilities.actuallyNull(),
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterEqualNullBig_3()
+  {
+    RangeCheck.checkGreaterEqualBig(
+      BigInteger.ZERO,
+      "x",
+      BigInteger.ONE,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public void testGreaterNull_0()
+  {
+    RangeCheck.checkGreater(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      1L,
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public void testGreaterNull_1()
+  {
+    RangeCheck.checkGreater(
+      0L,
+      "x",
+      1L,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterNullBig_0()
+  {
+    RangeCheck.checkGreaterBig(
+      (BigInteger) TestUtilities.actuallyNull(),
+      "x",
+      BigInteger.ONE,
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterNullBig_1()
+  {
+    RangeCheck.checkGreaterBig(
+      BigInteger.ZERO,
+      (String) TestUtilities.actuallyNull(),
+      BigInteger.ONE,
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterNullBig_2()
+  {
+    RangeCheck.checkGreaterBig(
+      BigInteger.ZERO,
+      "x",
+      (BigInteger) TestUtilities.actuallyNull(),
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterNullBig_3()
+  {
+    RangeCheck.checkGreaterBig(
+      BigInteger.ZERO,
+      "x",
+      BigInteger.ONE,
+      (String) TestUtilities.actuallyNull());
+  }
 }
