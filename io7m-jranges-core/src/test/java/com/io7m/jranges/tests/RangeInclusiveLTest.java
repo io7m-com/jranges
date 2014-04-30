@@ -61,6 +61,15 @@ import com.io7m.jranges.RangeInclusiveL;
     Assert.assertEquals(10L, r.getInterval());
   }
 
+  @Test public void testRange_1()
+  {
+    final RangeInclusiveL r = new RangeInclusiveL(0L, 9L);
+    Assert.assertFalse(r.includesValue(-1));
+    Assert.assertFalse(r.includesValue(10));
+    Assert.assertTrue(r.includesValue(0));
+    Assert.assertTrue(r.includesValue(9));
+  }
+
   @SuppressWarnings("unused") @Test(expected = RangeCheckException.class) public
     void
     testRangeBad_0()

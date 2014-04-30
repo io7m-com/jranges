@@ -121,6 +121,26 @@ public final class RangeInclusiveB
 
   /**
    * <p>
+   * Determine if the given value is included in this range.
+   * </p>
+   * 
+   * @param value
+   *          The given value
+   * @return <code>true</code> iff
+   *         <code>value >= this.getLower() && value <= this.getUpper()</code>
+   *         .
+   */
+
+  public boolean includesValue(
+    final BigInteger value)
+  {
+    NullCheck.notNull(value, "Value");
+    return (value.compareTo(this.lower) >= 0)
+      && (value.compareTo(this.upper) <= 0);
+  }
+
+  /**
+   * <p>
    * Determine if the given range is included in this range.
    * </p>
    * 

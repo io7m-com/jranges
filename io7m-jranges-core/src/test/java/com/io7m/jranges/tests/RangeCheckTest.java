@@ -24,177 +24,11 @@ import org.junit.Test;
 import com.io7m.jnull.NullCheckException;
 import com.io7m.jranges.RangeCheck;
 import com.io7m.jranges.RangeCheckException;
+import com.io7m.jranges.RangeInclusiveB;
+import com.io7m.jranges.RangeInclusiveL;
 
 @SuppressWarnings({ "null", "static-method" }) public class RangeCheckTest
 {
-  @Test(expected = RangeCheckException.class) public void testLess_0()
-  {
-    RangeCheck.checkLess(0L, "x", 0L, "upper");
-  }
-
-  @Test public void testLess_1()
-  {
-    Assert.assertEquals(0L, RangeCheck.checkLess(0L, "x", 1L, "upper"));
-  }
-
-  @Test(expected = RangeCheckException.class) public void testLessBig_0()
-  {
-    RangeCheck.checkLessBig(BigInteger.ZERO, "x", BigInteger.ZERO, "upper");
-  }
-
-  @Test public void testLessBig_1()
-  {
-    Assert.assertEquals(
-      BigInteger.ZERO,
-      RangeCheck.checkLessBig(BigInteger.ZERO, "x", BigInteger.ONE, "upper"));
-  }
-
-  @Test(expected = RangeCheckException.class) public void testLessEqual_0()
-  {
-    RangeCheck.checkLessEqual(1L, "x", 0L, "upper");
-  }
-
-  @Test public void testLessEqual_1()
-  {
-    Assert.assertEquals(1L, RangeCheck.checkLessEqual(1L, "x", 1L, "upper"));
-  }
-
-  @Test(expected = RangeCheckException.class) public
-    void
-    testLessEqualBig_0()
-  {
-    RangeCheck.checkLessEqualBig(
-      BigInteger.ONE,
-      "x",
-      BigInteger.ZERO,
-      "upper");
-  }
-
-  @Test public void testLessEqualBig_1()
-  {
-    Assert.assertEquals(BigInteger.ONE, RangeCheck.checkLessEqualBig(
-      BigInteger.ONE,
-      "x",
-      BigInteger.ONE,
-      "upper"));
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessEqualNull_0()
-  {
-    RangeCheck.checkLessEqual(
-      0L,
-      (String) TestUtilities.actuallyNull(),
-      1L,
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessEqualNull_1()
-  {
-    RangeCheck.checkLessEqual(
-      0L,
-      "x",
-      1L,
-      (String) TestUtilities.actuallyNull());
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessEqualNullBig_0()
-  {
-    RangeCheck.checkLessEqualBig(
-      (BigInteger) TestUtilities.actuallyNull(),
-      "x",
-      BigInteger.ONE,
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessEqualNullBig_1()
-  {
-    RangeCheck.checkLessEqualBig(
-      BigInteger.ZERO,
-      (String) TestUtilities.actuallyNull(),
-      BigInteger.ONE,
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessEqualNullBig_2()
-  {
-    RangeCheck.checkLessEqualBig(
-      BigInteger.ZERO,
-      "x",
-      (BigInteger) TestUtilities.actuallyNull(),
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessEqualNullBig_3()
-  {
-    RangeCheck.checkLessEqualBig(
-      BigInteger.ZERO,
-      "x",
-      BigInteger.ONE,
-      (String) TestUtilities.actuallyNull());
-  }
-
-  @Test(expected = NullCheckException.class) public void testLessNull_0()
-  {
-    RangeCheck.checkLess(
-      0L,
-      (String) TestUtilities.actuallyNull(),
-      1L,
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public void testLessNull_1()
-  {
-    RangeCheck.checkLess(0L, "x", 1L, (String) TestUtilities.actuallyNull());
-  }
-
-  @Test(expected = NullCheckException.class) public void testLessNullBig_0()
-  {
-    RangeCheck.checkLessBig(
-      (BigInteger) TestUtilities.actuallyNull(),
-      "x",
-      BigInteger.ONE,
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public void testLessNullBig_1()
-  {
-    RangeCheck.checkLessBig(
-      BigInteger.ZERO,
-      (String) TestUtilities.actuallyNull(),
-      BigInteger.ONE,
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public void testLessNullBig_2()
-  {
-    RangeCheck.checkLessBig(
-      BigInteger.ZERO,
-      "x",
-      (BigInteger) TestUtilities.actuallyNull(),
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public void testLessNullBig_3()
-  {
-    RangeCheck.checkLessBig(
-      BigInteger.ZERO,
-      "x",
-      BigInteger.ONE,
-      (String) TestUtilities.actuallyNull());
-  }
-
   @Test(expected = RangeCheckException.class) public void testGreater_0()
   {
     RangeCheck.checkGreater(0L, "x", 0L, "lower");
@@ -381,4 +215,329 @@ import com.io7m.jranges.RangeCheckException;
       BigInteger.ONE,
       (String) TestUtilities.actuallyNull());
   }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testIncludedBigNull_0()
+  {
+    final RangeInclusiveB range =
+      new RangeInclusiveB(BigInteger.valueOf(0), BigInteger.valueOf(9));
+    RangeCheck.checkIncludedInBig(
+      (BigInteger) TestUtilities.actuallyNull(),
+      "value",
+      range,
+      "range");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testIncludedBigNull_1()
+  {
+    final RangeInclusiveB range =
+      new RangeInclusiveB(BigInteger.valueOf(0), BigInteger.valueOf(9));
+    RangeCheck.checkIncludedInBig(
+      BigInteger.ZERO,
+      (String) TestUtilities.actuallyNull(),
+      range,
+      "range");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testIncludedBigNull_2()
+  {
+    RangeCheck.checkIncludedInBig(
+      BigInteger.ZERO,
+      "name",
+      (RangeInclusiveB) TestUtilities.actuallyNull(),
+      "range");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testIncludedBigNull_3()
+  {
+    final RangeInclusiveB range =
+      new RangeInclusiveB(BigInteger.valueOf(0), BigInteger.valueOf(9));
+    RangeCheck.checkIncludedInBig(
+      BigInteger.ZERO,
+      "name",
+      range,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testIncludedBigRange_0()
+  {
+    final RangeInclusiveB range =
+      new RangeInclusiveB(BigInteger.valueOf(0), BigInteger.valueOf(9));
+    RangeCheck.checkIncludedInBig(
+      BigInteger.valueOf(-1),
+      "Value",
+      range,
+      "Range");
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testIncludedBigRange_1()
+  {
+    final RangeInclusiveB range =
+      new RangeInclusiveB(BigInteger.valueOf(0), BigInteger.valueOf(9));
+    RangeCheck.checkIncludedInBig(BigInteger.TEN, "Value", range, "Range");
+  }
+
+  @Test public void testIncludedBigRange_2()
+  {
+    final RangeInclusiveB range =
+      new RangeInclusiveB(BigInteger.valueOf(0), BigInteger.valueOf(9));
+    Assert
+      .assertEquals(BigInteger.ZERO, RangeCheck.checkIncludedInBig(
+        BigInteger.ZERO,
+        "Value",
+        range,
+        "Range"));
+  }
+
+  @Test public void testIncludedBigRange_3()
+  {
+    final RangeInclusiveB range =
+      new RangeInclusiveB(BigInteger.valueOf(0), BigInteger.valueOf(9));
+    Assert.assertEquals(BigInteger.valueOf(9), RangeCheck.checkIncludedInBig(
+      BigInteger.valueOf(9),
+      "Value",
+      range,
+      "Range"));
+  }
+
+  @Test(expected = NullCheckException.class) public void testIncludedNull_0()
+  {
+    final RangeInclusiveL range = new RangeInclusiveL(0, 9);
+    RangeCheck.checkIncludedIn(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      range,
+      "range");
+  }
+
+  @Test(expected = NullCheckException.class) public void testIncludedNull_1()
+  {
+    RangeCheck.checkIncludedIn(
+      0L,
+      "name",
+      (RangeInclusiveL) TestUtilities.actuallyNull(),
+      "range");
+  }
+
+  @Test(expected = NullCheckException.class) public void testIncludedNull_2()
+  {
+    final RangeInclusiveL range = new RangeInclusiveL(0, 9);
+    RangeCheck.checkIncludedIn(
+      0L,
+      "name",
+      range,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testIncludedRange_0()
+  {
+    final RangeInclusiveL range = new RangeInclusiveL(0, 9);
+    RangeCheck.checkIncludedIn(-1, "Value", range, "Range");
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testIncludedRange_1()
+  {
+    final RangeInclusiveL range = new RangeInclusiveL(0, 9);
+    RangeCheck.checkIncludedIn(10, "Value", range, "Range");
+  }
+
+  @Test public void testIncludedRange_2()
+  {
+    final RangeInclusiveL range = new RangeInclusiveL(0, 9);
+    Assert.assertEquals(
+      0,
+      RangeCheck.checkIncludedIn(0, "Value", range, "Range"));
+  }
+
+  @Test public void testIncludedRange_3()
+  {
+    final RangeInclusiveL range = new RangeInclusiveL(0, 9);
+    Assert.assertEquals(
+      9,
+      RangeCheck.checkIncludedIn(9, "Value", range, "Range"));
+  }
+
+  @Test(expected = RangeCheckException.class) public void testLess_0()
+  {
+    RangeCheck.checkLess(0L, "x", 0L, "upper");
+  }
+
+  @Test public void testLess_1()
+  {
+    Assert.assertEquals(0L, RangeCheck.checkLess(0L, "x", 1L, "upper"));
+  }
+
+  @Test(expected = RangeCheckException.class) public void testLessBig_0()
+  {
+    RangeCheck.checkLessBig(BigInteger.ZERO, "x", BigInteger.ZERO, "upper");
+  }
+
+  @Test public void testLessBig_1()
+  {
+    Assert.assertEquals(
+      BigInteger.ZERO,
+      RangeCheck.checkLessBig(BigInteger.ZERO, "x", BigInteger.ONE, "upper"));
+  }
+
+  @Test(expected = RangeCheckException.class) public void testLessEqual_0()
+  {
+    RangeCheck.checkLessEqual(1L, "x", 0L, "upper");
+  }
+
+  @Test public void testLessEqual_1()
+  {
+    Assert.assertEquals(1L, RangeCheck.checkLessEqual(1L, "x", 1L, "upper"));
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testLessEqualBig_0()
+  {
+    RangeCheck.checkLessEqualBig(
+      BigInteger.ONE,
+      "x",
+      BigInteger.ZERO,
+      "upper");
+  }
+
+  @Test public void testLessEqualBig_1()
+  {
+    Assert.assertEquals(BigInteger.ONE, RangeCheck.checkLessEqualBig(
+      BigInteger.ONE,
+      "x",
+      BigInteger.ONE,
+      "upper"));
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessEqualNull_0()
+  {
+    RangeCheck.checkLessEqual(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      1L,
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessEqualNull_1()
+  {
+    RangeCheck.checkLessEqual(
+      0L,
+      "x",
+      1L,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessEqualNullBig_0()
+  {
+    RangeCheck.checkLessEqualBig(
+      (BigInteger) TestUtilities.actuallyNull(),
+      "x",
+      BigInteger.ONE,
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessEqualNullBig_1()
+  {
+    RangeCheck.checkLessEqualBig(
+      BigInteger.ZERO,
+      (String) TestUtilities.actuallyNull(),
+      BigInteger.ONE,
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessEqualNullBig_2()
+  {
+    RangeCheck.checkLessEqualBig(
+      BigInteger.ZERO,
+      "x",
+      (BigInteger) TestUtilities.actuallyNull(),
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessEqualNullBig_3()
+  {
+    RangeCheck.checkLessEqualBig(
+      BigInteger.ZERO,
+      "x",
+      BigInteger.ONE,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public void testLessNull_0()
+  {
+    RangeCheck.checkLess(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      1L,
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public void testLessNull_1()
+  {
+    RangeCheck.checkLess(0L, "x", 1L, (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public void testLessNullBig_0()
+  {
+    RangeCheck.checkLessBig(
+      (BigInteger) TestUtilities.actuallyNull(),
+      "x",
+      BigInteger.ONE,
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public void testLessNullBig_1()
+  {
+    RangeCheck.checkLessBig(
+      BigInteger.ZERO,
+      (String) TestUtilities.actuallyNull(),
+      BigInteger.ONE,
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public void testLessNullBig_2()
+  {
+    RangeCheck.checkLessBig(
+      BigInteger.ZERO,
+      "x",
+      (BigInteger) TestUtilities.actuallyNull(),
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public void testLessNullBig_3()
+  {
+    RangeCheck.checkLessBig(
+      BigInteger.ZERO,
+      "x",
+      BigInteger.ONE,
+      (String) TestUtilities.actuallyNull());
+  }
+
 }

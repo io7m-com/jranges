@@ -21,12 +21,13 @@ import java.math.BigInteger;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jnull.NullCheckException;
 import com.io7m.jranges.RangeCheckException;
 import com.io7m.jranges.RangeInclusiveB;
 
-@SuppressWarnings("static-method") public class RangeInclusiveBTest
+@SuppressWarnings({ "null", "unused", "static-method" }) public class RangeInclusiveBTest
 {
-  @SuppressWarnings("null") @Test public void testEquals_0()
+  @Test public void testEquals_0()
   {
     final RangeInclusiveB r00 =
       new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO);
@@ -46,7 +47,7 @@ import com.io7m.jranges.RangeInclusiveB;
     Assert.assertNotEquals(r12, r00);
   }
 
-  @SuppressWarnings("null") @Test public void testIncluded()
+  @Test public void testIncluded()
   {
     Assert.assertTrue(new RangeInclusiveB(BigInteger.ZERO, BigInteger.TEN)
       .isIncludedIn(new RangeInclusiveB(BigInteger.ZERO, BigInteger.TEN)));
@@ -58,7 +59,7 @@ import com.io7m.jranges.RangeInclusiveB;
       .isIncludedIn(new RangeInclusiveB(BigInteger.ONE, BigInteger.TEN)));
   }
 
-  @SuppressWarnings("null") @Test public void testRange_0()
+  @Test public void testRange_0()
   {
     final RangeInclusiveB r =
       new RangeInclusiveB(BigInteger.ZERO, BigInteger.valueOf(9));
@@ -67,8 +68,26 @@ import com.io7m.jranges.RangeInclusiveB;
     Assert.assertEquals(BigInteger.TEN, r.getInterval());
   }
 
-  @SuppressWarnings({ "null", "unused" }) @Test(
-    expected = RangeCheckException.class) public void testRangeBad_0()
+  @Test public void testRange_1()
+  {
+    final RangeInclusiveB r =
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.valueOf(9));
+
+    Assert.assertTrue(r.includesValue(BigInteger.ZERO));
+    Assert.assertTrue(r.includesValue(BigInteger.ONE));
+    Assert.assertFalse(r.includesValue(BigInteger.valueOf(-1)));
+    Assert.assertFalse(r.includesValue(BigInteger.valueOf(10)));
+  }
+
+  @Test(expected = NullCheckException.class) public void testRange_2()
+  {
+    final RangeInclusiveB r =
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.valueOf(9));
+
+    r.includesValue((BigInteger) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = RangeCheckException.class) public void testRangeBad_0()
   {
     new RangeInclusiveB(BigInteger.ONE, BigInteger.ZERO);
   }
