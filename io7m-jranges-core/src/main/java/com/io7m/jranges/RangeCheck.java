@@ -40,6 +40,25 @@ import com.io7m.junreachable.UnreachableCodeException;
 @EqualityReference public final class RangeCheck
 {
   /**
+   * The inclusive range of natural integers,
+   * <code>[0, {@link Integer#MAX_VALUE}]</code>.
+   */
+
+  public static final RangeInclusiveL NATURAL_INTEGER;
+
+  /**
+   * The inclusive range of positive integers,
+   * <code>[1, {@link Integer#MAX_VALUE}]</code>.
+   */
+
+  public static final RangeInclusiveL POSITIVE_INTEGER;
+
+  static {
+    POSITIVE_INTEGER = new RangeInclusiveL(1, Integer.MAX_VALUE);
+    NATURAL_INTEGER = new RangeInclusiveL(0, Integer.MAX_VALUE);
+  }
+
+  /**
    * <p>
    * Assert that <code>x</code> (named <code>x_name</code>) is greater than
    * <code>in_lower</code> (named <code>lower_name</code>).
@@ -115,6 +134,47 @@ import com.io7m.junreachable.UnreachableCodeException;
     final String message =
       String.format(
         "%s (%s) > %s (%s) == false",
+        x_name,
+        x,
+        lower_name,
+        in_lower);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
+   * Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * <code>in_lower</code> (named <code>lower_name</code>).
+   * </p>
+   * 
+   * @param x
+   *          The checked value
+   * @param in_lower
+   *          The lower bound
+   * @param x_name
+   *          The name of the checked value
+   * @param lower_name
+   *          The name of the lower bound
+   * @return x
+   */
+
+  public static double checkGreaterDouble(
+    final double x,
+    final String x_name,
+    final double in_lower,
+    final String lower_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(lower_name, "Lower bound name");
+
+    if (x > in_lower) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format(
+        "%s (%f) > %s (%f) == false",
         x_name,
         x,
         lower_name,
@@ -209,44 +269,41 @@ import com.io7m.junreachable.UnreachableCodeException;
 
   /**
    * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is included in the
-   * given range <code>range</code> (named <code>range_name</code>).
+   * Assert that <code>x</code> (named <code>x_name</code>) is greater than or
+   * equal to <code>in_lower</code> (named <code>lower_name</code>).
    * </p>
    * 
    * @param x
    *          The checked value
+   * @param in_lower
+   *          The lower bound
    * @param x_name
-   *          The name of the checked value
-   * @param range
-   *          The inclusive range
-   * @param range_name
-   *          The name of the inclusive range
+   *          The name of x
+   * @param lower_name
+   *          The name of the lower bound
    * @return x
    */
 
-  public static BigInteger checkIncludedInBig(
-    final BigInteger x,
+  public static double checkGreaterEqualDouble(
+    final double x,
     final String x_name,
-    final RangeInclusiveB range,
-    final String range_name)
+    final double in_lower,
+    final String lower_name)
   {
-    NullCheck.notNull(x, "Value");
     NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(range, "Range");
-    NullCheck.notNull(range_name, "Range name");
+    NullCheck.notNull(lower_name, "Lower bound name");
 
-    if (range.includesValue(x)) {
+    if (x >= in_lower) {
       return x;
     }
 
-    final String message =
+    @SuppressWarnings("boxing") final String message =
       String.format(
-        "%s >= %s (%s) <= %s (%s) == false",
-        range.getLower(),
+        "%s (%f) >= %s (%f) == false",
         x_name,
         x,
-        range.getUpper(),
-        range_name);
+        lower_name,
+        in_lower);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -289,6 +346,50 @@ import com.io7m.junreachable.UnreachableCodeException;
         x_name,
         Long.valueOf(x),
         Long.valueOf(range.getUpper()),
+        range_name);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
+   * Assert that <code>x</code> (named <code>x_name</code>) is included in the
+   * given range <code>range</code> (named <code>range_name</code>).
+   * </p>
+   * 
+   * @param x
+   *          The checked value
+   * @param x_name
+   *          The name of the checked value
+   * @param range
+   *          The inclusive range
+   * @param range_name
+   *          The name of the inclusive range
+   * @return x
+   */
+
+  public static BigInteger checkIncludedInBig(
+    final BigInteger x,
+    final String x_name,
+    final RangeInclusiveB range,
+    final String range_name)
+  {
+    NullCheck.notNull(x, "Value");
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(range, "Range");
+    NullCheck.notNull(range_name, "Range name");
+
+    if (range.includesValue(x)) {
+      return x;
+    }
+
+    final String message =
+      String.format(
+        "%s >= %s (%s) <= %s (%s) == false",
+        range.getLower(),
+        x_name,
+        x,
+        range.getUpper(),
         range_name);
     assert message != null;
     throw new RangeCheckException(message);
@@ -380,6 +481,47 @@ import com.io7m.junreachable.UnreachableCodeException;
 
   /**
    * <p>
+   * Assert that <code>x</code> (named <code>x_name</code>) is less than
+   * <code>in_upper</code> (named <code>upper_name</code>).
+   * </p>
+   * 
+   * @param x
+   *          The checked value
+   * @param in_upper
+   *          The upper bound
+   * @param x_name
+   *          The name of the checked value
+   * @param upper_name
+   *          The name of the upper bound
+   * @return x
+   */
+
+  public static double checkLessDouble(
+    final double x,
+    final String x_name,
+    final double in_upper,
+    final String upper_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(upper_name, "Upper bound name");
+
+    if (x < in_upper) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format(
+        "%s (%f) < %s (%f) == false",
+        x_name,
+        x,
+        upper_name,
+        in_upper);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
    * Assert that <code>x</code> (named <code>x_name</code>) is less than or
    * equal to <code>in_upper</code> (named <code>upper_name</code>).
    * </p>
@@ -454,6 +596,47 @@ import com.io7m.junreachable.UnreachableCodeException;
     final String message =
       String.format(
         "%s (%s) <= %s (%s) == false",
+        x_name,
+        x,
+        upper_name,
+        in_upper);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
+   * Assert that <code>x</code> (named <code>x_name</code>) is less than or
+   * equal to <code>in_upper</code> (named <code>upper_name</code>).
+   * </p>
+   * 
+   * @param x
+   *          The checked value
+   * @param in_upper
+   *          The upper bound
+   * @param x_name
+   *          The name of x
+   * @param upper_name
+   *          The name of the upper bound
+   * @return x
+   */
+
+  public static double checkLessEqualDouble(
+    final double x,
+    final String x_name,
+    final double in_upper,
+    final String upper_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(upper_name, "Upper bound name");
+
+    if (x <= in_upper) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format(
+        "%s (%f) <= %s (%f) == false",
         x_name,
         x,
         upper_name,

@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.io7m.jranges</groupId>
   <artifactId>io7m-jranges</artifactId>
-  <version>0.3.2</version>
+  <version>0.3.3</version>
 
   <packaging>pom</packaging>
   <name>io7m-jranges</name>

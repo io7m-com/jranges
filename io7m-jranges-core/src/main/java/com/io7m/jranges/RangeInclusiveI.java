@@ -121,6 +121,24 @@ public final class RangeInclusiveI
 
   /**
    * <p>
+   * Determine if the given value is included in this range.
+   * </p>
+   * 
+   * @param value
+   *          The given value
+   * @return <code>true</code> iff
+   *         <code>value >= this.getLower() && value <= this.getUpper()</code>
+   *         .
+   */
+
+  public boolean includesValue(
+    final int value)
+  {
+    return (value >= this.lower) && (value <= this.upper);
+  }
+
+  /**
+   * <p>
    * Determine if the given range is included in this range.
    * </p>
    * 
