@@ -40,11 +40,25 @@ import com.io7m.junreachable.UnreachableCodeException;
 @EqualityReference public final class RangeCheck
 {
   /**
+   * The inclusive range of numbers greater than or equal to <code>0</code>,
+   * <code>[0, {@link Double#MAX_VALUE}]</code>.
+   */
+
+  public static final RangeInclusiveD NATURAL_DOUBLE;
+
+  /**
    * The inclusive range of natural integers,
    * <code>[0, {@link Integer#MAX_VALUE}]</code>.
    */
 
   public static final RangeInclusiveL NATURAL_INTEGER;
+
+  /**
+   * The inclusive range of numbers greater than or equal to <code>1</code>,
+   * <code>[1, {@link Double#MAX_VALUE}]</code>.
+   */
+
+  public static final RangeInclusiveD POSITIVE_DOUBLE;
 
   /**
    * The inclusive range of positive integers,
@@ -56,6 +70,8 @@ import com.io7m.junreachable.UnreachableCodeException;
   static {
     POSITIVE_INTEGER = new RangeInclusiveL(1, Integer.MAX_VALUE);
     NATURAL_INTEGER = new RangeInclusiveL(0, Integer.MAX_VALUE);
+    NATURAL_DOUBLE = new RangeInclusiveD(0, Double.MAX_VALUE);
+    POSITIVE_DOUBLE = new RangeInclusiveD(1, Double.MAX_VALUE);
   }
 
   /**
@@ -641,6 +657,94 @@ import com.io7m.junreachable.UnreachableCodeException;
         x,
         upper_name,
         in_upper);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
+   * Assert that <code>inner</code> (named <code>inner_name</code>) is
+   * included in the given range <code>outer</code> (named
+   * <code>outer_name</code>).
+   * </p>
+   * 
+   * @param inner
+   *          The checked range
+   * @param inner_name
+   *          The name of the checked range
+   * @param outer
+   *          The outer range
+   * @param outer_name
+   *          The name of the outer range
+   * @return inner
+   */
+
+  public static RangeInclusiveL checkRangeIncludedIn(
+    final RangeInclusiveL inner,
+    final String inner_name,
+    final RangeInclusiveL outer,
+    final String outer_name)
+  {
+    NullCheck.notNull(inner, "Inner range");
+    NullCheck.notNull(inner_name, "Inner range name");
+    NullCheck.notNull(outer, "Outer range");
+    NullCheck.notNull(outer_name, "Outer range name");
+
+    if (inner.isIncludedIn(outer)) {
+      return inner;
+    }
+
+    final String message =
+      String.format(
+        "Inner range %s (%s) not included in outer range %s (%s)",
+        inner_name,
+        inner,
+        outer_name,
+        outer);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p>
+   * Assert that <code>inner</code> (named <code>inner_name</code>) is
+   * included in the given range <code>outer</code> (named
+   * <code>outer_name</code>).
+   * </p>
+   * 
+   * @param inner
+   *          The checked range
+   * @param inner_name
+   *          The name of the checked range
+   * @param outer
+   *          The outer range
+   * @param outer_name
+   *          The name of the outer range
+   * @return inner
+   */
+
+  public static RangeInclusiveB checkRangeIncludedInBig(
+    final RangeInclusiveB inner,
+    final String inner_name,
+    final RangeInclusiveB outer,
+    final String outer_name)
+  {
+    NullCheck.notNull(inner, "Inner range");
+    NullCheck.notNull(inner_name, "Inner range name");
+    NullCheck.notNull(outer, "Outer range");
+    NullCheck.notNull(outer_name, "Outer range name");
+
+    if (inner.isIncludedIn(outer)) {
+      return inner;
+    }
+
+    final String message =
+      String.format(
+        "Inner range %s (%s) not included in outer range %s (%s)",
+        inner_name,
+        inner,
+        outer_name,
+        outer);
     assert message != null;
     throw new RangeCheckException(message);
   }

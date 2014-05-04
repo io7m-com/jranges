@@ -34,24 +34,9 @@ import com.io7m.jranges.RangeInclusiveL;
     RangeCheck.checkGreater(0L, "x", 0L, "lower");
   }
 
-  @Test(expected = RangeCheckException.class) public
-    void
-    testGreaterDouble_0()
-  {
-    RangeCheck.checkGreaterDouble(0L, "x", 0L, "lower");
-  }
-
   @Test public void testGreater_1()
   {
     Assert.assertEquals(2L, RangeCheck.checkGreater(2L, "x", 1L, "lower"));
-  }
-
-  @Test public void testGreaterDouble_1()
-  {
-    Assert.assertEquals(
-      2L,
-      RangeCheck.checkGreaterDouble(2L, "x", 1L, "lower"),
-      0.0);
   }
 
   @Test(expected = RangeCheckException.class) public void testGreaterBig_0()
@@ -71,6 +56,21 @@ import com.io7m.jranges.RangeInclusiveL;
 
   @Test(expected = RangeCheckException.class) public
     void
+    testGreaterDouble_0()
+  {
+    RangeCheck.checkGreaterDouble(0L, "x", 0L, "lower");
+  }
+
+  @Test public void testGreaterDouble_1()
+  {
+    Assert.assertEquals(
+      2L,
+      RangeCheck.checkGreaterDouble(2L, "x", 1L, "lower"),
+      0.0);
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
     testGreaterEqual_0()
   {
     RangeCheck.checkGreaterEqual(0L, "x", 1L, "lower");
@@ -81,21 +81,6 @@ import com.io7m.jranges.RangeInclusiveL;
     Assert.assertEquals(
       1L,
       RangeCheck.checkGreaterEqual(1L, "x", 1L, "lower"));
-  }
-
-  @Test(expected = RangeCheckException.class) public
-    void
-    testGreaterEqualDouble_0()
-  {
-    RangeCheck.checkGreaterEqualDouble(0.0, "x", 1.0, "lower");
-  }
-
-  @Test public void testGreaterEqualDouble_1()
-  {
-    Assert.assertEquals(
-      1L,
-      RangeCheck.checkGreaterEqualDouble(1.0, "x", 1.0, "lower"),
-      0.0);
   }
 
   @Test(expected = RangeCheckException.class) public
@@ -118,26 +103,19 @@ import com.io7m.jranges.RangeInclusiveL;
       "lower"));
   }
 
-  @Test(expected = NullCheckException.class) public
+  @Test(expected = RangeCheckException.class) public
     void
-    testGreaterEqualNull_0()
+    testGreaterEqualDouble_0()
   {
-    RangeCheck.checkGreaterEqual(
-      0L,
-      (String) TestUtilities.actuallyNull(),
-      1L,
-      "lower");
+    RangeCheck.checkGreaterEqualDouble(0.0, "x", 1.0, "lower");
   }
 
-  @Test(expected = NullCheckException.class) public
-    void
-    testGreaterEqualNull_1()
+  @Test public void testGreaterEqualDouble_1()
   {
-    RangeCheck.checkGreaterEqual(
-      0L,
-      "x",
+    Assert.assertEquals(
       1L,
-      (String) TestUtilities.actuallyNull());
+      RangeCheck.checkGreaterEqualDouble(1.0, "x", 1.0, "lower"),
+      0.0);
   }
 
   @Test(expected = NullCheckException.class) public
@@ -156,6 +134,28 @@ import com.io7m.jranges.RangeInclusiveL;
     testGreaterEqualDoubleNull_1()
   {
     RangeCheck.checkGreaterEqualDouble(
+      0L,
+      "x",
+      1L,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterEqualNull_0()
+  {
+    RangeCheck.checkGreaterEqual(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      1L,
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterEqualNull_1()
+  {
+    RangeCheck.checkGreaterEqual(
       0L,
       "x",
       1L,
@@ -226,28 +226,6 @@ import com.io7m.jranges.RangeInclusiveL;
 
   @Test(expected = NullCheckException.class) public
     void
-    testGreaterNullDouble_0()
-  {
-    RangeCheck.checkGreaterDouble(
-      0L,
-      (String) TestUtilities.actuallyNull(),
-      1L,
-      "lower");
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testGreaterNullDouble_1()
-  {
-    RangeCheck.checkGreaterDouble(
-      0L,
-      "x",
-      1L,
-      (String) TestUtilities.actuallyNull());
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
     testGreaterNullBig_0()
   {
     RangeCheck.checkGreaterBig(
@@ -287,6 +265,28 @@ import com.io7m.jranges.RangeInclusiveL;
       BigInteger.ZERO,
       "x",
       BigInteger.ONE,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterNullDouble_0()
+  {
+    RangeCheck.checkGreaterDouble(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      1L,
+      "lower");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testGreaterNullDouble_1()
+  {
+    RangeCheck.checkGreaterDouble(
+      0L,
+      "x",
+      1L,
       (String) TestUtilities.actuallyNull());
   }
 
@@ -456,6 +456,18 @@ import com.io7m.jranges.RangeInclusiveL;
     Assert.assertEquals(0L, RangeCheck.checkLess(0L, "x", 1L, "upper"));
   }
 
+  @Test(expected = RangeCheckException.class) public void testLessBig_0()
+  {
+    RangeCheck.checkLessBig(BigInteger.ZERO, "x", BigInteger.ZERO, "upper");
+  }
+
+  @Test public void testLessBig_1()
+  {
+    Assert.assertEquals(
+      BigInteger.ZERO,
+      RangeCheck.checkLessBig(BigInteger.ZERO, "x", BigInteger.ONE, "upper"));
+  }
+
   @Test(expected = RangeCheckException.class) public void testLessDouble_0()
   {
     RangeCheck.checkLessDouble(0.0, "x", 0.0, "upper");
@@ -469,18 +481,6 @@ import com.io7m.jranges.RangeInclusiveL;
       0.0);
   }
 
-  @Test(expected = RangeCheckException.class) public void testLessBig_0()
-  {
-    RangeCheck.checkLessBig(BigInteger.ZERO, "x", BigInteger.ZERO, "upper");
-  }
-
-  @Test public void testLessBig_1()
-  {
-    Assert.assertEquals(
-      BigInteger.ZERO,
-      RangeCheck.checkLessBig(BigInteger.ZERO, "x", BigInteger.ONE, "upper"));
-  }
-
   @Test(expected = RangeCheckException.class) public void testLessEqual_0()
   {
     RangeCheck.checkLessEqual(1L, "x", 0L, "upper");
@@ -489,21 +489,6 @@ import com.io7m.jranges.RangeInclusiveL;
   @Test public void testLessEqual_1()
   {
     Assert.assertEquals(1L, RangeCheck.checkLessEqual(1L, "x", 1L, "upper"));
-  }
-
-  @Test(expected = RangeCheckException.class) public
-    void
-    testLessEqualDouble_0()
-  {
-    RangeCheck.checkLessEqualDouble(1.0, "x", 0.0, "upper");
-  }
-
-  @Test public void testLessEqualDouble_1()
-  {
-    Assert.assertEquals(
-      1.0,
-      RangeCheck.checkLessEqualDouble(1.0, "x", 1.0, "upper"),
-      0.0);
   }
 
   @Test(expected = RangeCheckException.class) public
@@ -526,6 +511,21 @@ import com.io7m.jranges.RangeInclusiveL;
       "upper"));
   }
 
+  @Test(expected = RangeCheckException.class) public
+    void
+    testLessEqualDouble_0()
+  {
+    RangeCheck.checkLessEqualDouble(1.0, "x", 0.0, "upper");
+  }
+
+  @Test public void testLessEqualDouble_1()
+  {
+    Assert.assertEquals(
+      1.0,
+      RangeCheck.checkLessEqualDouble(1.0, "x", 1.0, "upper"),
+      0.0);
+  }
+
   @Test(expected = NullCheckException.class) public
     void
     testLessEqualNull_0()
@@ -542,28 +542,6 @@ import com.io7m.jranges.RangeInclusiveL;
     testLessEqualNull_1()
   {
     RangeCheck.checkLessEqual(
-      0L,
-      "x",
-      1L,
-      (String) TestUtilities.actuallyNull());
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessEqualNullDouble_0()
-  {
-    RangeCheck.checkLessEqualDouble(
-      0L,
-      (String) TestUtilities.actuallyNull(),
-      1L,
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessEqualNullDouble_1()
-  {
-    RangeCheck.checkLessEqualDouble(
       0L,
       "x",
       1L,
@@ -614,6 +592,28 @@ import com.io7m.jranges.RangeInclusiveL;
       (String) TestUtilities.actuallyNull());
   }
 
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessEqualNullDouble_0()
+  {
+    RangeCheck.checkLessEqualDouble(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      1L,
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessEqualNullDouble_1()
+  {
+    RangeCheck.checkLessEqualDouble(
+      0L,
+      "x",
+      1L,
+      (String) TestUtilities.actuallyNull());
+  }
+
   @Test(expected = NullCheckException.class) public void testLessNull_0()
   {
     RangeCheck.checkLess(
@@ -626,28 +626,6 @@ import com.io7m.jranges.RangeInclusiveL;
   @Test(expected = NullCheckException.class) public void testLessNull_1()
   {
     RangeCheck.checkLess(0L, "x", 1L, (String) TestUtilities.actuallyNull());
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessNullDouble_0()
-  {
-    RangeCheck.checkLessDouble(
-      0L,
-      (String) TestUtilities.actuallyNull(),
-      1L,
-      "upper");
-  }
-
-  @Test(expected = NullCheckException.class) public
-    void
-    testLessNullDouble_1()
-  {
-    RangeCheck.checkLessDouble(
-      0L,
-      "x",
-      1L,
-      (String) TestUtilities.actuallyNull());
   }
 
   @Test(expected = NullCheckException.class) public void testLessNullBig_0()
@@ -686,4 +664,156 @@ import com.io7m.jranges.RangeInclusiveL;
       (String) TestUtilities.actuallyNull());
   }
 
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessNullDouble_0()
+  {
+    RangeCheck.checkLessDouble(
+      0L,
+      (String) TestUtilities.actuallyNull(),
+      1L,
+      "upper");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testLessNullDouble_1()
+  {
+    RangeCheck.checkLessDouble(
+      0L,
+      "x",
+      1L,
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test public void testRangeIncluded_0()
+  {
+    Assert.assertEquals(new RangeInclusiveL(0, 0), RangeCheck
+      .checkRangeIncludedIn(
+        new RangeInclusiveL(0, 0),
+        "Inner",
+        new RangeInclusiveL(0, 0),
+        "Outer"));
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testRangeIncluded_1()
+  {
+    RangeCheck.checkRangeIncludedIn(
+      new RangeInclusiveL(1, 1),
+      "Inner",
+      new RangeInclusiveL(0, 0),
+      "Outer");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testRangeIncluded_Null_0()
+  {
+    RangeCheck.checkRangeIncludedIn(
+      (RangeInclusiveL) TestUtilities.actuallyNull(),
+      "Inner",
+      new RangeInclusiveL(0, 0),
+      "Outer");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testRangeIncluded_Null_1()
+  {
+    RangeCheck.checkRangeIncludedIn(
+      new RangeInclusiveL(0, 0),
+      (String) TestUtilities.actuallyNull(),
+      new RangeInclusiveL(0, 0),
+      "Outer");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testRangeIncluded_Null_2()
+  {
+    RangeCheck.checkRangeIncludedIn(
+      new RangeInclusiveL(0, 0),
+      "Inner",
+      (RangeInclusiveL) TestUtilities.actuallyNull(),
+      "Outer");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testRangeIncluded_Null_3()
+  {
+    RangeCheck.checkRangeIncludedIn(
+      new RangeInclusiveL(0, 0),
+      "Inner",
+      new RangeInclusiveL(0, 0),
+      (String) TestUtilities.actuallyNull());
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testRangeIncluded_NullBig_0()
+  {
+    RangeCheck.checkRangeIncludedInBig(
+      (RangeInclusiveB) TestUtilities.actuallyNull(),
+      "Inner",
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO),
+      "Outer");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testRangeIncluded_NullBig_1()
+  {
+    RangeCheck.checkRangeIncludedInBig(
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO),
+      (String) TestUtilities.actuallyNull(),
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO),
+      "Outer");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testRangeIncluded_NullBig_2()
+  {
+    RangeCheck.checkRangeIncludedInBig(
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO),
+      "Inner",
+      (RangeInclusiveB) TestUtilities.actuallyNull(),
+      "Outer");
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testRangeIncluded_NullBig_3()
+  {
+    RangeCheck.checkRangeIncludedInBig(new RangeInclusiveB(
+      BigInteger.ZERO,
+      BigInteger.ZERO), "Inner", new RangeInclusiveB(
+      BigInteger.ZERO,
+      BigInteger.ZERO), (String) TestUtilities.actuallyNull());
+  }
+
+  @Test public void testRangeIncludedBig_0()
+  {
+    Assert.assertEquals(
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO),
+      RangeCheck.checkRangeIncludedInBig(new RangeInclusiveB(
+        BigInteger.ZERO,
+        BigInteger.ZERO), "Inner", new RangeInclusiveB(
+        BigInteger.ZERO,
+        BigInteger.ZERO), "Outer"));
+  }
+
+  @Test(expected = RangeCheckException.class) public
+    void
+    testRangeIncludedBig_1()
+  {
+    RangeCheck.checkRangeIncludedInBig(new RangeInclusiveB(
+      BigInteger.ONE,
+      BigInteger.ONE), "Inner", new RangeInclusiveB(
+      BigInteger.ZERO,
+      BigInteger.ZERO), "Outer");
+  }
 }
