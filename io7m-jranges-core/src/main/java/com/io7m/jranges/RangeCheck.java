@@ -105,12 +105,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     @SuppressWarnings("boxing") final String message =
-      String.format(
-        "%s (%d) > %s (%d) == false",
-        x_name,
-        x,
-        lower_name,
-        in_lower);
+      String.format("%s (%d) <= %s (%d)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -148,12 +143,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     final String message =
-      String.format(
-        "%s (%s) > %s (%s) == false",
-        x_name,
-        x,
-        lower_name,
-        in_lower);
+      String.format("%s (%s) <= %s (%s)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -189,12 +179,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     @SuppressWarnings("boxing") final String message =
-      String.format(
-        "%s (%f) > %s (%f) == false",
-        x_name,
-        x,
-        lower_name,
-        in_lower);
+      String.format("%s (%f) <= %s (%f)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -230,12 +215,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     @SuppressWarnings("boxing") final String message =
-      String.format(
-        "%s (%d) >= %s (%d) == false",
-        x_name,
-        x,
-        lower_name,
-        in_lower);
+      String.format("%s (%d) < %s (%d)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -273,12 +253,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     final String message =
-      String.format(
-        "%s (%s) >= %s (%s) == false",
-        x_name,
-        x,
-        lower_name,
-        in_lower);
+      String.format("%s (%s) < %s (%s)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -314,12 +289,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     @SuppressWarnings("boxing") final String message =
-      String.format(
-        "%s (%f) >= %s (%f) == false",
-        x_name,
-        x,
-        lower_name,
-        in_lower);
+      String.format("%s (%f) < %s (%f)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -357,7 +327,7 @@ import com.io7m.junreachable.UnreachableCodeException;
 
     final String message =
       String.format(
-        "%s >= %s (%s) <= %s (%s) == false",
+        "%s <= %s (%s) <= %s (%s) == false",
         Long.valueOf(range.getLower()),
         x_name,
         Long.valueOf(x),
@@ -401,7 +371,7 @@ import com.io7m.junreachable.UnreachableCodeException;
 
     final String message =
       String.format(
-        "%s >= %s (%s) <= %s (%s) == false",
+        "%s <= %s (%s) <= %s (%s) == false",
         range.getLower(),
         x_name,
         x,
@@ -442,12 +412,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     @SuppressWarnings("boxing") final String message =
-      String.format(
-        "%s (%d) < %s (%d) == false",
-        x_name,
-        x,
-        upper_name,
-        in_upper);
+      String.format("%s (%d) >= %s (%d)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -485,12 +450,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     final String message =
-      String.format(
-        "%s (%s) < %s (%s) == false",
-        x_name,
-        x,
-        upper_name,
-        in_upper);
+      String.format("%s (%s) >= %s (%s)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -526,12 +486,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     @SuppressWarnings("boxing") final String message =
-      String.format(
-        "%s (%f) < %s (%f) == false",
-        x_name,
-        x,
-        upper_name,
-        in_upper);
+      String.format("%s (%f) >= %s (%f)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -567,12 +522,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     @SuppressWarnings("boxing") final String message =
-      String.format(
-        "%s (%d) <= %s (%d) == false",
-        x_name,
-        x,
-        upper_name,
-        in_upper);
+      String.format("%s (%d) > %s (%d)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -610,12 +560,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     final String message =
-      String.format(
-        "%s (%s) <= %s (%s) == false",
-        x_name,
-        x,
-        upper_name,
-        in_upper);
+      String.format("%s (%s) > %s (%s)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
   }
@@ -651,12 +596,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     }
 
     @SuppressWarnings("boxing") final String message =
-      String.format(
-        "%s (%f) <= %s (%f) == false",
-        x_name,
-        x,
-        upper_name,
-        in_upper);
+      String.format("%s (%f) > %s (%f)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
   }
