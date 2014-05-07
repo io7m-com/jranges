@@ -1,1 +1,1 @@
-io7m-jranges 0.3.4
+io7m-jranges 0.3.5
