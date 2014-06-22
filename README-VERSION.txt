@@ -1,1 +1,1 @@
-io7m-jranges 0.3.5
+io7m-jranges 1.0.0
