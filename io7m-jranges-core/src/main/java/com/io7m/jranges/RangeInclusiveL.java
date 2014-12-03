@@ -34,7 +34,7 @@ public final class RangeInclusiveL
 
   /**
    * Construct an inclusive range. The constructor enforces the invariant
-   * <code>lower <= upper</code>.
+   * <code>lower &lt;= upper</code>.
    * 
    * @param in_lower
    *          The lower bound
@@ -123,7 +123,7 @@ public final class RangeInclusiveL
    * @param value
    *          The given value
    * @return <code>true</code> iff
-   *         <code>value >= this.getLower() && value <= this.getUpper()</code>
+   *         <code>value &gt;= this.getLower() &amp;&amp; value &lt;= this.getUpper()</code>
    *         .
    */
 
@@ -141,7 +141,7 @@ public final class RangeInclusiveL
    * @param other
    *          The given range
    * @return <code>true</code> iff
-   *         <code>this.getLower() >= other.getLower() && this.getUpper() <= other.getUpper()</code>
+   *         <code>this.getLower() &gt;= other.getLower() &amp;&amp; this.getUpper() &lt;= other.getUpper()</code>
    *         .
    */
 
