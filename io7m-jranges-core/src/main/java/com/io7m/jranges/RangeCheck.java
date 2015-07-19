@@ -42,8 +42,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * <code>in_lower</code> (named <code>lower_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than
+   * {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -75,8 +75,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * <code>in_lower</code> (named <code>lower_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than
+   * {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -108,8 +108,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * <code>in_lower</code> (named <code>lower_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than
+   * {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -141,8 +141,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * <code>in_lower</code> (named <code>lower_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than
+   * {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -172,8 +172,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * or equal to <code>in_lower</code> (named <code>lower_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than
+   * or equal to {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -205,8 +205,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * or equal to <code>in_lower</code> (named <code>lower_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than
+   * or equal to {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -238,8 +238,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * or equal to <code>in_lower</code> (named <code>lower_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than
+   * or equal to {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -271,8 +271,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * or equal to <code>in_lower</code> (named <code>lower_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than
+   * or equal to {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -302,8 +302,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is included in
-   * the given range <code>range</code> (named <code>range_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is included in
+   * the given range {@code range} (named {@code range_name}). </p>
    *
    * @param x          The checked value
    * @param x_name     The name of the checked value
@@ -341,8 +341,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is included in
-   * the given range <code>range</code> (named <code>range_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is included in
+   * the given range {@code range} (named {@code range_name}). </p>
    *
    * @param x          The checked value
    * @param x_name     The name of the checked value
@@ -380,8 +380,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is included in
-   * the given range <code>range</code> (named <code>range_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is included in
+   * the given range {@code range} (named {@code range_name}). </p>
    *
    * @param x          The checked value
    * @param x_name     The name of the checked value
@@ -418,8 +418,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than
-   * <code>in_upper</code> (named <code>upper_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than
+   * {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -451,8 +451,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than
-   * <code>in_upper</code> (named <code>upper_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than
+   * {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -484,8 +484,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than
-   * <code>in_upper</code> (named <code>upper_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than
+   * {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -517,8 +517,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than
-   * <code>in_upper</code> (named <code>upper_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than
+   * {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -548,8 +548,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than or
-   * equal to <code>in_upper</code> (named <code>upper_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than or
+   * equal to {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -581,8 +581,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than or
-   * equal to <code>in_upper</code> (named <code>upper_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than or
+   * equal to {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -614,8 +614,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than or
-   * equal to <code>in_upper</code> (named <code>upper_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than or
+   * equal to {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -647,8 +647,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than or
-   * equal to <code>in_upper</code> (named <code>upper_name</code>). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than or
+   * equal to {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -678,9 +678,9 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>inner</code> (named <code>inner_name</code>) is
-   * included in the given range <code>outer</code> (named
-   * <code>outer_name</code>). </p>
+   * <p> Assert that {@code inner} (named {@code inner_name}) is
+   * included in the given range {@code outer} (named
+   * {@code outer_name}). </p>
    *
    * @param inner      The checked range
    * @param inner_name The name of the checked range
@@ -718,9 +718,9 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>inner</code> (named <code>inner_name</code>) is
-   * included in the given range <code>outer</code> (named
-   * <code>outer_name</code>). </p>
+   * <p> Assert that {@code inner} (named {@code inner_name}) is
+   * included in the given range {@code outer} (named
+   * {@code outer_name}). </p>
    *
    * @param inner      The checked range
    * @param inner_name The name of the checked range
@@ -758,9 +758,9 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that <code>inner</code> (named <code>inner_name</code>) is
-   * included in the given range <code>outer</code> (named
-   * <code>outer_name</code>). </p>
+   * <p> Assert that {@code inner} (named {@code inner_name}) is
+   * included in the given range {@code outer} (named
+   * {@code outer_name}). </p>
    *
    * @param inner      The checked range
    * @param inner_name The name of the checked range

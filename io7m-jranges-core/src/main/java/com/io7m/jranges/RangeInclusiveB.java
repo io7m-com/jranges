@@ -35,7 +35,7 @@ import java.math.BigInteger;
 
   /**
    * Construct an inclusive range. The constructor enforces the invariant
-   * <code>lower &lt;= upper</code>.
+   * {@code lower &lt;= upper}.
    *
    * @param in_lower The lower bound
    * @param in_upper The upper bound
@@ -75,8 +75,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Retrieve the number of values in the range <code>[lower, upper]</code>.
-   * That is, <code>(upper - lower) + 1</code>. <p>
+   * <p> Retrieve the number of values in the range {@code [lower, upper]}.
+   * That is, {@code (upper - lower) + 1}. <p>
    *
    * @return The number of values in the range
    */
@@ -119,8 +119,8 @@ import java.math.BigInteger;
    *
    * @param value The given value
    *
-   * @return <code>true</code> iff <code>value &gt;= this.getLower() &amp;&amp;
-   * value &lt;= this.getUpper()</code> .
+   * @return {@code true} iff {@code value &gt;= this.getLower() &amp;&amp;
+   * value &lt;= this.getUpper()} .
    */
 
   public boolean includesValue(
@@ -136,8 +136,8 @@ import java.math.BigInteger;
    *
    * @param other The given range
    *
-   * @return <code>true</code> iff <code>this.getLower() &gt;= other.getLower()
-   * &amp;&amp; this.getUpper() &lt;= other.getUpper()</code> .
+   * @return {@code true} iff {@code this.getLower() &gt;= other.getLower()
+   * &amp;&amp; this.getUpper() &lt;= other.getUpper()} .
    */
 
   public boolean isIncludedIn(

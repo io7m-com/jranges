@@ -21,7 +21,7 @@ import com.io7m.jnull.Nullable;
 import net.jcip.annotations.Immutable;
 
 /**
- * <p> Immutable type representing an inclusive range with <code>double</code>
+ * <p> Immutable type representing an inclusive range with {@code double}
  * components. </p>
  */
 
@@ -33,7 +33,7 @@ import net.jcip.annotations.Immutable;
 
   /**
    * Construct an inclusive range. The constructor enforces the invariant
-   * <code>lower &lt;= upper</code>.
+   * {@code lower &lt;= upper}.
    *
    * @param in_lower The lower bound
    * @param in_upper The upper bound
@@ -69,8 +69,8 @@ import net.jcip.annotations.Immutable;
   }
 
   /**
-   * @return The difference between the <code>upper</code> and
-   * <code>lower</code> bound, literally <code>upper - lower</code>.
+   * @return The difference between the {@code upper} and
+   * {@code lower} bound, literally {@code upper - lower}.
    */
 
   public double getInterval()
@@ -113,8 +113,8 @@ import net.jcip.annotations.Immutable;
    *
    * @param value The given value
    *
-   * @return <code>true</code> iff <code>value &gt;= this.getLower() &amp;&amp;
-   * value &lt;= this.getUpper()</code> .
+   * @return {@code true} iff {@code value &gt;= this.getLower() &amp;&amp;
+   * value &lt;= this.getUpper()} .
    */
 
   public boolean includesValue(
@@ -128,8 +128,8 @@ import net.jcip.annotations.Immutable;
    *
    * @param other The given range
    *
-   * @return <code>true</code> iff <code>this.getLower() &gt;= other.getLower()
-   * &amp;&amp; this.getUpper() &lt;= other.getUpper()</code> .
+   * @return {@code true} iff {@code this.getLower() &gt;= other.getLower()
+   * &amp;&amp; this.getUpper() &lt;= other.getUpper()} .
    */
 
   public boolean isIncludedIn(
