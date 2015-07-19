@@ -3,8 +3,23 @@
   <c:project>io7m-jranges</c:project>
 
   <c:release c:ticket-system="com.io7m.fossil.jranges">
-    <c:date>2014-12-03</c:date>
-    <c:version>1.0.1</c:version>
+    <c:date>2015-07-19</c:date>
+    <c:version>2.0.0</c:version>
+    <c:item>
+      <c:date>2015-07-19</c:date>
+      <c:type-code-change/>
+      <c:summary>Move all predefined ranges to Ranges.</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2015-07-19</c:date>
+      <c:type-code-change/>
+      <c:summary>Suffix all previously unsuffixed method names with Long for uniformity.</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2015-07-19</c:date>
+      <c:type-code-new/>
+      <c:summary>Add JCIP annotations.</c:summary>
+    </c:item>
     <c:item>
       <c:date>2014-12-03</c:date>
       <c:type-code-fix/>
