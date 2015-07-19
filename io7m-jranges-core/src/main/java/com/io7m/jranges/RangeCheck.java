@@ -35,40 +35,8 @@ import java.math.BigInteger;
 
 @EqualityReference public final class RangeCheck
 {
-  /**
-   * The inclusive range of numbers greater than or equal to <code>0</code>,
-   * <code>[0, {@link Double#MAX_VALUE}]</code>.
-   */
 
-  public static final RangeInclusiveD NATURAL_DOUBLE;
 
-  /**
-   * The inclusive range of natural integers, <code>[0, {@link
-   * Integer#MAX_VALUE}]</code>.
-   */
-
-  public static final RangeInclusiveL NATURAL_INTEGER;
-
-  /**
-   * The inclusive range of numbers greater than or equal to <code>1</code>,
-   * <code>[1, {@link Double#MAX_VALUE}]</code>.
-   */
-
-  public static final RangeInclusiveD POSITIVE_DOUBLE;
-
-  /**
-   * The inclusive range of positive integers, <code>[1, {@link
-   * Integer#MAX_VALUE}]</code>.
-   */
-
-  public static final RangeInclusiveL POSITIVE_INTEGER;
-
-  static {
-    POSITIVE_INTEGER = new RangeInclusiveL(1, Integer.MAX_VALUE);
-    NATURAL_INTEGER = new RangeInclusiveL(0, Integer.MAX_VALUE);
-    NATURAL_DOUBLE = new RangeInclusiveD(0, Double.MAX_VALUE);
-    POSITIVE_DOUBLE = new RangeInclusiveD(1, Double.MAX_VALUE);
-  }
 
   private RangeCheck()
   {
@@ -85,12 +53,47 @@ import java.math.BigInteger;
    * @param lower_name The name of the lower bound
    *
    * @return x
+   *
+   * @since 2.0.0
    */
 
-  public static long checkGreater(
+  public static long checkGreaterLong(
     final long x,
     final String x_name,
     final long in_lower,
+    final String lower_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(lower_name, "Lower bound name");
+
+    if (x > in_lower) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format("%s (%d) <= %s (%d)", x_name, x, lower_name, in_lower);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * <code>in_lower</code> (named <code>lower_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_lower   The lower bound
+   * @param x_name     The name of the checked value
+   * @param lower_name The name of the lower bound
+   *
+   * @return x
+   *
+   * @since 2.0.0
+   */
+
+  public static int checkGreaterInteger(
+    final int x,
+    final String x_name,
+    final int in_lower,
     final String lower_name)
   {
     NullCheck.notNull(x_name, "Value name");
@@ -180,12 +183,47 @@ import java.math.BigInteger;
    * @param lower_name The name of the lower bound
    *
    * @return x
+   *
+   * @since 2.0.0
    */
 
-  public static long checkGreaterEqual(
+  public static long checkGreaterEqualLong(
     final long x,
     final String x_name,
     final long in_lower,
+    final String lower_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(lower_name, "Lower bound name");
+
+    if (x >= in_lower) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format("%s (%d) < %s (%d)", x_name, x, lower_name, in_lower);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * or equal to <code>in_lower</code> (named <code>lower_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_lower   The lower bound
+   * @param x_name     The name of x
+   * @param lower_name The name of the lower bound
+   *
+   * @return x
+   *
+   * @since 2.0.0
+   */
+
+  public static int checkGreaterEqualInteger(
+    final int x,
+    final String x_name,
+    final int in_lower,
     final String lower_name)
   {
     NullCheck.notNull(x_name, "Value name");
@@ -275,9 +313,11 @@ import java.math.BigInteger;
    * @param range_name The name of the inclusive range
    *
    * @return x
+   *
+   * @since 2.0.0
    */
 
-  public static long checkIncludedIn(
+  public static long checkIncludedInLong(
     final long x,
     final String x_name,
     final RangeInclusiveL range,
@@ -312,9 +352,11 @@ import java.math.BigInteger;
    * @param range_name The name of the inclusive range
    *
    * @return x
+   *
+   * @since 2.0.0
    */
 
-  public static int checkIncludedInInt(
+  public static int checkIncludedInInteger(
     final int x,
     final String x_name,
     final RangeInclusiveI range,
@@ -387,12 +429,47 @@ import java.math.BigInteger;
    * @param upper_name The name of the upper bound
    *
    * @return x
+   *
+   * @since 2.0.0
    */
 
-  public static long checkLess(
+  public static long checkLessLong(
     final long x,
     final String x_name,
     final long in_upper,
+    final String upper_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(upper_name, "Upper bound name");
+
+    if (x < in_upper) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format("%s (%d) >= %s (%d)", x_name, x, upper_name, in_upper);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than
+   * <code>in_upper</code> (named <code>upper_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_upper   The upper bound
+   * @param x_name     The name of the checked value
+   * @param upper_name The name of the upper bound
+   *
+   * @return x
+   *
+   * @since 2.0.0
+   */
+
+  public static int checkLessInteger(
+    final int x,
+    final String x_name,
+    final int in_upper,
     final String upper_name)
   {
     NullCheck.notNull(x_name, "Value name");
@@ -482,12 +559,47 @@ import java.math.BigInteger;
    * @param upper_name The name of the upper bound
    *
    * @return x
+   *
+   * @since 2.0.0
    */
 
-  public static long checkLessEqual(
+  public static long checkLessEqualLong(
     final long x,
     final String x_name,
     final long in_upper,
+    final String upper_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(upper_name, "Upper bound name");
+
+    if (x <= in_upper) {
+      return x;
+    }
+
+    @SuppressWarnings("boxing") final String message =
+      String.format("%s (%d) > %s (%d)", x_name, x, upper_name, in_upper);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than or
+   * equal to <code>in_upper</code> (named <code>upper_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_upper   The upper bound
+   * @param x_name     The name of x
+   * @param upper_name The name of the upper bound
+   *
+   * @return x
+   *
+   * @since 2.0.0
+   */
+
+  public static int checkLessEqualInteger(
+    final int x,
+    final String x_name,
+    final int in_upper,
     final String upper_name)
   {
     NullCheck.notNull(x_name, "Value name");
@@ -578,12 +690,54 @@ import java.math.BigInteger;
    * @param outer_name The name of the outer range
    *
    * @return inner
+   *
+   * @since 2.0.0
    */
 
-  public static RangeInclusiveL checkRangeIncludedIn(
+  public static RangeInclusiveL checkRangeIncludedInLong(
     final RangeInclusiveL inner,
     final String inner_name,
     final RangeInclusiveL outer,
+    final String outer_name)
+  {
+    NullCheck.notNull(inner, "Inner range");
+    NullCheck.notNull(inner_name, "Inner range name");
+    NullCheck.notNull(outer, "Outer range");
+    NullCheck.notNull(outer_name, "Outer range name");
+
+    if (inner.isIncludedIn(outer)) {
+      return inner;
+    }
+
+    final String message = String.format(
+      "Inner range %s (%s) not included in outer range %s (%s)",
+      inner_name,
+      inner,
+      outer_name,
+      outer);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p> Assert that <code>inner</code> (named <code>inner_name</code>) is
+   * included in the given range <code>outer</code> (named
+   * <code>outer_name</code>). </p>
+   *
+   * @param inner      The checked range
+   * @param inner_name The name of the checked range
+   * @param outer      The outer range
+   * @param outer_name The name of the outer range
+   *
+   * @return inner
+   *
+   * @since 2.0.0
+   */
+
+  public static RangeInclusiveI checkRangeIncludedInInteger(
+    final RangeInclusiveI inner,
+    final String inner_name,
+    final RangeInclusiveI outer,
     final String outer_name)
   {
     NullCheck.notNull(inner, "Inner range");

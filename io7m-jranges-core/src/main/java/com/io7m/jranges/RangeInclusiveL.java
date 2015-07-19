@@ -42,7 +42,7 @@ public final class RangeInclusiveL
     final long in_lower,
     final long in_upper)
   {
-    RangeCheck.checkLessEqual(in_lower, "lower", in_upper, "upper");
+    RangeCheck.checkLessEqualLong(in_lower, "lower", in_upper, "upper");
     this.lower = in_lower;
     this.upper = in_upper;
     this.interval = (this.upper - this.lower) + 1;
