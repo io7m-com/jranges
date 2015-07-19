@@ -17,14 +17,10 @@
 package com.io7m.jranges;
 
 /**
- * <p>
- * An exception raised when a {@link RangeCheck} assertion fails.
- * </p>
- * <p>
+ * <p> An exception raised when a {@link RangeCheck} assertion fails. </p> <p>
  * Exceptions of this type are <i>not</i> intended to be caught and handled;
- * they indicate program bugs.
- * </p>
- * 
+ * they indicate program bugs. </p>
+ *
  * @see RangeCheck
  */
 
@@ -38,9 +34,8 @@ public final class RangeCheckException extends RuntimeException
 
   /**
    * Construct an exception with the given message.
-   * 
-   * @param message
-   *          The message
+   *
+   * @param message The message
    */
 
   public RangeCheckException(
@@ -51,11 +46,9 @@ public final class RangeCheckException extends RuntimeException
 
   /**
    * Construct an exception with the given cause and message.
-   * 
-   * @param message
-   *          The message
-   * @param cause
-   *          The cause
+   *
+   * @param message The message
+   * @param cause   The cause
    */
 
   public RangeCheckException(

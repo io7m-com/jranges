@@ -16,24 +16,20 @@
 
 package com.io7m.jranges;
 
-import java.math.BigInteger;
-
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jnull.NullCheck;
 import com.io7m.junreachable.UnreachableCodeException;
 
+import java.math.BigInteger;
+
 /**
- * <p>
- * Functions for enforcing range constraints at run time.
- * </p>
- * <p>
- * The functions are intended for use in the manner of assertions. That is,
- * the program should behave identically if all of the checks are removed. The
- * functions raise {@link RangeCheckException} upon failure. Exceptions of
- * this type are <i>not</i> intended to be caught and handled; they indicate
- * program bugs.
- * </p>
- * 
+ * <p> Functions for enforcing range constraints at run time. </p> <p> The
+ * functions are intended for use in the manner of assertions. That is, the
+ * program should behave identically if all of the checks are removed. The
+ * functions raise {@link RangeCheckException} upon failure. Exceptions of this
+ * type are <i>not</i> intended to be caught and handled; they indicate program
+ * bugs. </p>
+ *
  * @see RangeCheckException
  */
 
@@ -47,8 +43,8 @@ import com.io7m.junreachable.UnreachableCodeException;
   public static final RangeInclusiveD NATURAL_DOUBLE;
 
   /**
-   * The inclusive range of natural integers,
-   * <code>[0, {@link Integer#MAX_VALUE}]</code>.
+   * The inclusive range of natural integers, <code>[0, {@link
+   * Integer#MAX_VALUE}]</code>.
    */
 
   public static final RangeInclusiveL NATURAL_INTEGER;
@@ -61,8 +57,8 @@ import com.io7m.junreachable.UnreachableCodeException;
   public static final RangeInclusiveD POSITIVE_DOUBLE;
 
   /**
-   * The inclusive range of positive integers,
-   * <code>[1, {@link Integer#MAX_VALUE}]</code>.
+   * The inclusive range of positive integers, <code>[1, {@link
+   * Integer#MAX_VALUE}]</code>.
    */
 
   public static final RangeInclusiveL POSITIVE_INTEGER;
@@ -74,20 +70,20 @@ import com.io7m.junreachable.UnreachableCodeException;
     POSITIVE_DOUBLE = new RangeInclusiveD(1, Double.MAX_VALUE);
   }
 
+  private RangeCheck()
+  {
+    throw new UnreachableCodeException();
+  }
+
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * <code>in_lower</code> (named <code>lower_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_lower
-   *          The lower bound
-   * @param x_name
-   *          The name of the checked value
-   * @param lower_name
-   *          The name of the lower bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * <code>in_lower</code> (named <code>lower_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_lower   The lower bound
+   * @param x_name     The name of the checked value
+   * @param lower_name The name of the lower bound
+   *
    * @return x
    */
 
@@ -111,19 +107,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * <code>in_lower</code> (named <code>lower_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_lower
-   *          The lower bound
-   * @param x_name
-   *          The name of the checked value
-   * @param lower_name
-   *          The name of the lower bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * <code>in_lower</code> (named <code>lower_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_lower   The lower bound
+   * @param x_name     The name of the checked value
+   * @param lower_name The name of the lower bound
+   *
    * @return x
    */
 
@@ -149,19 +140,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is greater than
-   * <code>in_lower</code> (named <code>lower_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_lower
-   *          The lower bound
-   * @param x_name
-   *          The name of the checked value
-   * @param lower_name
-   *          The name of the lower bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * <code>in_lower</code> (named <code>lower_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_lower   The lower bound
+   * @param x_name     The name of the checked value
+   * @param lower_name The name of the lower bound
+   *
    * @return x
    */
 
@@ -185,19 +171,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is greater than or
-   * equal to <code>in_lower</code> (named <code>lower_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_lower
-   *          The lower bound
-   * @param x_name
-   *          The name of x
-   * @param lower_name
-   *          The name of the lower bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * or equal to <code>in_lower</code> (named <code>lower_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_lower   The lower bound
+   * @param x_name     The name of x
+   * @param lower_name The name of the lower bound
+   *
    * @return x
    */
 
@@ -221,19 +202,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is greater than or
-   * equal to <code>in_lower</code> (named <code>lower_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_lower
-   *          The lower bound
-   * @param x_name
-   *          The name of the checked value
-   * @param lower_name
-   *          The name of the lower bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * or equal to <code>in_lower</code> (named <code>lower_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_lower   The lower bound
+   * @param x_name     The name of the checked value
+   * @param lower_name The name of the lower bound
+   *
    * @return x
    */
 
@@ -259,19 +235,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is greater than or
-   * equal to <code>in_lower</code> (named <code>lower_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_lower
-   *          The lower bound
-   * @param x_name
-   *          The name of x
-   * @param lower_name
-   *          The name of the lower bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is greater than
+   * or equal to <code>in_lower</code> (named <code>lower_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_lower   The lower bound
+   * @param x_name     The name of x
+   * @param lower_name The name of the lower bound
+   *
    * @return x
    */
 
@@ -295,19 +266,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is included in the
-   * given range <code>range</code> (named <code>range_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param x_name
-   *          The name of the checked value
-   * @param range
-   *          The inclusive range
-   * @param range_name
-   *          The name of the inclusive range
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is included in
+   * the given range <code>range</code> (named <code>range_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param x_name     The name of the checked value
+   * @param range      The inclusive range
+   * @param range_name The name of the inclusive range
+   *
    * @return x
    */
 
@@ -325,32 +291,63 @@ import com.io7m.junreachable.UnreachableCodeException;
       return x;
     }
 
-    final String message =
-      String.format(
-        "%s <= %s (%s) <= %s (%s) == false",
-        Long.valueOf(range.getLower()),
-        x_name,
-        Long.valueOf(x),
-        Long.valueOf(range.getUpper()),
-        range_name);
+    final String message = String.format(
+      "%s <= %s (%s) <= %s (%s) == false",
+      Long.valueOf(range.getLower()),
+      x_name,
+      Long.valueOf(x),
+      Long.valueOf(range.getUpper()),
+      range_name);
     assert message != null;
     throw new RangeCheckException(message);
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is included in the
-   * given range <code>range</code> (named <code>range_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param x_name
-   *          The name of the checked value
-   * @param range
-   *          The inclusive range
-   * @param range_name
-   *          The name of the inclusive range
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is included in
+   * the given range <code>range</code> (named <code>range_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param x_name     The name of the checked value
+   * @param range      The inclusive range
+   * @param range_name The name of the inclusive range
+   *
+   * @return x
+   */
+
+  public static int checkIncludedInInt(
+    final int x,
+    final String x_name,
+    final RangeInclusiveI range,
+    final String range_name)
+  {
+    NullCheck.notNull(x_name, "Value name");
+    NullCheck.notNull(range, "Range");
+    NullCheck.notNull(range_name, "Range name");
+
+    if (range.includesValue(x)) {
+      return x;
+    }
+
+    final String message = String.format(
+      "%s <= %s (%s) <= %s (%s) == false",
+      Integer.valueOf(range.getLower()),
+      x_name,
+      Integer.valueOf(x),
+      Integer.valueOf(range.getUpper()),
+      range_name);
+    assert message != null;
+    throw new RangeCheckException(message);
+  }
+
+  /**
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is included in
+   * the given range <code>range</code> (named <code>range_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param x_name     The name of the checked value
+   * @param range      The inclusive range
+   * @param range_name The name of the inclusive range
+   *
    * @return x
    */
 
@@ -369,32 +366,26 @@ import com.io7m.junreachable.UnreachableCodeException;
       return x;
     }
 
-    final String message =
-      String.format(
-        "%s <= %s (%s) <= %s (%s) == false",
-        range.getLower(),
-        x_name,
-        x,
-        range.getUpper(),
-        range_name);
+    final String message = String.format(
+      "%s <= %s (%s) <= %s (%s) == false",
+      range.getLower(),
+      x_name,
+      x,
+      range.getUpper(),
+      range_name);
     assert message != null;
     throw new RangeCheckException(message);
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is less than
-   * <code>in_upper</code> (named <code>upper_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_upper
-   *          The upper bound
-   * @param x_name
-   *          The name of the checked value
-   * @param upper_name
-   *          The name of the upper bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than
+   * <code>in_upper</code> (named <code>upper_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_upper   The upper bound
+   * @param x_name     The name of the checked value
+   * @param upper_name The name of the upper bound
+   *
    * @return x
    */
 
@@ -418,19 +409,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is less than
-   * <code>in_upper</code> (named <code>upper_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_upper
-   *          The upper bound
-   * @param x_name
-   *          The name of the checked value
-   * @param upper_name
-   *          The name of the upper bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than
+   * <code>in_upper</code> (named <code>upper_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_upper   The upper bound
+   * @param x_name     The name of the checked value
+   * @param upper_name The name of the upper bound
+   *
    * @return x
    */
 
@@ -456,19 +442,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is less than
-   * <code>in_upper</code> (named <code>upper_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_upper
-   *          The upper bound
-   * @param x_name
-   *          The name of the checked value
-   * @param upper_name
-   *          The name of the upper bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than
+   * <code>in_upper</code> (named <code>upper_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_upper   The upper bound
+   * @param x_name     The name of the checked value
+   * @param upper_name The name of the upper bound
+   *
    * @return x
    */
 
@@ -492,19 +473,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is less than or
-   * equal to <code>in_upper</code> (named <code>upper_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_upper
-   *          The upper bound
-   * @param x_name
-   *          The name of x
-   * @param upper_name
-   *          The name of the upper bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than or
+   * equal to <code>in_upper</code> (named <code>upper_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_upper   The upper bound
+   * @param x_name     The name of x
+   * @param upper_name The name of the upper bound
+   *
    * @return x
    */
 
@@ -528,19 +504,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is less than or
-   * equal to <code>in_upper</code> (named <code>upper_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_upper
-   *          The upper bound
-   * @param x_name
-   *          The name of the checked value
-   * @param upper_name
-   *          The name of the upper bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than or
+   * equal to <code>in_upper</code> (named <code>upper_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_upper   The upper bound
+   * @param x_name     The name of the checked value
+   * @param upper_name The name of the upper bound
+   *
    * @return x
    */
 
@@ -566,19 +537,14 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>x</code> (named <code>x_name</code>) is less than or
-   * equal to <code>in_upper</code> (named <code>upper_name</code>).
-   * </p>
-   * 
-   * @param x
-   *          The checked value
-   * @param in_upper
-   *          The upper bound
-   * @param x_name
-   *          The name of x
-   * @param upper_name
-   *          The name of the upper bound
+   * <p> Assert that <code>x</code> (named <code>x_name</code>) is less than or
+   * equal to <code>in_upper</code> (named <code>upper_name</code>). </p>
+   *
+   * @param x          The checked value
+   * @param in_upper   The upper bound
+   * @param x_name     The name of x
+   * @param upper_name The name of the upper bound
+   *
    * @return x
    */
 
@@ -602,20 +568,15 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * <p>
-   * Assert that <code>inner</code> (named <code>inner_name</code>) is
+   * <p> Assert that <code>inner</code> (named <code>inner_name</code>) is
    * included in the given range <code>outer</code> (named
-   * <code>outer_name</code>).
-   * </p>
-   * 
-   * @param inner
-   *          The checked range
-   * @param inner_name
-   *          The name of the checked range
-   * @param outer
-   *          The outer range
-   * @param outer_name
-   *          The name of the outer range
+   * <code>outer_name</code>). </p>
+   *
+   * @param inner      The checked range
+   * @param inner_name The name of the checked range
+   * @param outer      The outer range
+   * @param outer_name The name of the outer range
+   *
    * @return inner
    */
 
@@ -634,32 +595,26 @@ import com.io7m.junreachable.UnreachableCodeException;
       return inner;
     }
 
-    final String message =
-      String.format(
-        "Inner range %s (%s) not included in outer range %s (%s)",
-        inner_name,
-        inner,
-        outer_name,
-        outer);
+    final String message = String.format(
+      "Inner range %s (%s) not included in outer range %s (%s)",
+      inner_name,
+      inner,
+      outer_name,
+      outer);
     assert message != null;
     throw new RangeCheckException(message);
   }
 
   /**
-   * <p>
-   * Assert that <code>inner</code> (named <code>inner_name</code>) is
+   * <p> Assert that <code>inner</code> (named <code>inner_name</code>) is
    * included in the given range <code>outer</code> (named
-   * <code>outer_name</code>).
-   * </p>
-   * 
-   * @param inner
-   *          The checked range
-   * @param inner_name
-   *          The name of the checked range
-   * @param outer
-   *          The outer range
-   * @param outer_name
-   *          The name of the outer range
+   * <code>outer_name</code>). </p>
+   *
+   * @param inner      The checked range
+   * @param inner_name The name of the checked range
+   * @param outer      The outer range
+   * @param outer_name The name of the outer range
+   *
    * @return inner
    */
 
@@ -678,19 +633,13 @@ import com.io7m.junreachable.UnreachableCodeException;
       return inner;
     }
 
-    final String message =
-      String.format(
-        "Inner range %s (%s) not included in outer range %s (%s)",
-        inner_name,
-        inner,
-        outer_name,
-        outer);
+    final String message = String.format(
+      "Inner range %s (%s) not included in outer range %s (%s)",
+      inner_name,
+      inner,
+      outer_name,
+      outer);
     assert message != null;
     throw new RangeCheckException(message);
-  }
-
-  private RangeCheck()
-  {
-    throw new UnreachableCodeException();
   }
 }

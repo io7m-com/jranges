@@ -16,16 +16,14 @@
 
 package com.io7m.jranges;
 
-import java.math.BigInteger;
-
 import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.Nullable;
 
+import java.math.BigInteger;
+
 /**
- * <p>
- * Immutable type representing an inclusive range with {@link BigInteger}
- * components.
- * </p>
+ * <p> Immutable type representing an inclusive range with {@link BigInteger}
+ * components. </p>
  */
 
 public final class RangeInclusiveB
@@ -37,11 +35,9 @@ public final class RangeInclusiveB
   /**
    * Construct an inclusive range. The constructor enforces the invariant
    * <code>lower &lt;= upper</code>.
-   * 
-   * @param in_lower
-   *          The lower bound
-   * @param in_upper
-   *          The upper bound
+   *
+   * @param in_lower The lower bound
+   * @param in_upper The upper bound
    */
 
   public RangeInclusiveB(
@@ -73,16 +69,14 @@ public final class RangeInclusiveB
     }
     final RangeInclusiveB other = (RangeInclusiveB) obj;
     return this.interval.equals(other.interval)
-      && this.lower.equals(other.lower)
-      && this.upper.equals(other.upper);
+           && this.lower.equals(other.lower)
+           && this.upper.equals(other.upper);
   }
 
   /**
-   * <p>
-   * Retrieve the number of values in the range <code>[lower, upper]</code>.
-   * That is, <code>(upper - lower) + 1</code>.
-   * <p>
-   * 
+   * <p> Retrieve the number of values in the range <code>[lower, upper]</code>.
+   * That is, <code>(upper - lower) + 1</code>. <p>
+   *
    * @return The number of values in the range
    */
 
@@ -120,43 +114,37 @@ public final class RangeInclusiveB
   }
 
   /**
-   * <p>
-   * Determine if the given value is included in this range.
-   * </p>
-   * 
-   * @param value
-   *          The given value
-   * @return <code>true</code> iff
-   *         <code>value &gt;= this.getLower() &amp;&amp; value &lt;= this.getUpper()</code>
-   *         .
+   * <p> Determine if the given value is included in this range. </p>
+   *
+   * @param value The given value
+   *
+   * @return <code>true</code> iff <code>value &gt;= this.getLower() &amp;&amp;
+   * value &lt;= this.getUpper()</code> .
    */
 
   public boolean includesValue(
     final BigInteger value)
   {
     NullCheck.notNull(value, "Value");
-    return (value.compareTo(this.lower) >= 0)
-      && (value.compareTo(this.upper) <= 0);
+    return (value.compareTo(this.lower) >= 0) && (value.compareTo(this.upper)
+                                                  <= 0);
   }
 
   /**
-   * <p>
-   * Determine if the given range is included in this range.
-   * </p>
-   * 
-   * @param other
-   *          The given range
-   * @return <code>true</code> iff
-   *         <code>this.getLower() &gt;= other.getLower() &amp;&amp; this.getUpper() &lt;= other.getUpper()</code>
-   *         .
+   * <p> Determine if the given range is included in this range. </p>
+   *
+   * @param other The given range
+   *
+   * @return <code>true</code> iff <code>this.getLower() &gt;= other.getLower()
+   * &amp;&amp; this.getUpper() &lt;= other.getUpper()</code> .
    */
 
   public boolean isIncludedIn(
     final RangeInclusiveB other)
   {
     NullCheck.notNull(other, "Other range");
-    return (this.lower.compareTo(other.lower) >= 0)
-      && (this.upper.compareTo(other.upper) <= 0);
+    return (this.lower.compareTo(other.lower) >= 0) && (this.upper.compareTo(
+      other.upper) <= 0);
   }
 
   @Override public String toString()

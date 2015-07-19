@@ -16,13 +16,12 @@
 
 package com.io7m.jranges.tests;
 
-import java.math.BigInteger;
-
+import com.io7m.jranges.RangeCheckException;
+import com.io7m.jranges.RangeInclusiveL;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.io7m.jranges.RangeCheckException;
-import com.io7m.jranges.RangeInclusiveL;
+import java.math.BigInteger;
 
 @SuppressWarnings("static-method") public class RangeInclusiveLTest
 {
@@ -42,15 +41,45 @@ import com.io7m.jranges.RangeInclusiveL;
     Assert.assertNotEquals(r12, r00);
   }
 
+  @Test public void testHashCode_0()
+  {
+    final RangeInclusiveL r00 = new RangeInclusiveL(0, 0);
+    final RangeInclusiveL r00a = new RangeInclusiveL(0, 0);
+    final RangeInclusiveL r01 = new RangeInclusiveL(0, 1);
+    final RangeInclusiveL r12 = new RangeInclusiveL(1, 2);
+
+    Assert.assertEquals(r00.hashCode(), r00.hashCode());
+    Assert.assertEquals(r00a.hashCode(), r00.hashCode());
+    Assert.assertNotEquals(r01.hashCode(), r00.hashCode());
+    Assert.assertNotEquals(r12.hashCode(), r00.hashCode());
+    Assert.assertNotEquals(r00.hashCode(), r01.hashCode());
+    Assert.assertNotEquals(r00.hashCode(), r12.hashCode());
+  }
+
+  @Test public void testToString_0()
+  {
+    final RangeInclusiveL r00 = new RangeInclusiveL(0, 0);
+    final RangeInclusiveL r00a = new RangeInclusiveL(0, 0);
+    final RangeInclusiveL r01 = new RangeInclusiveL(0, 1);
+    final RangeInclusiveL r12 = new RangeInclusiveL(1, 2);
+
+    Assert.assertEquals(r00.toString(), r00.toString());
+    Assert.assertEquals(r00a.toString(), r00.toString());
+    Assert.assertNotEquals(r01.toString(), r00.toString());
+    Assert.assertNotEquals(r12.toString(), r00.toString());
+    Assert.assertNotEquals(r00.toString(), r01.toString());
+    Assert.assertNotEquals(r00.toString(), r12.toString());
+  }
+
   @Test public void testIncluded()
   {
-    Assert.assertTrue(new RangeInclusiveL(0, 10)
-      .isIncludedIn(new RangeInclusiveL(0, 10)));
+    Assert.assertTrue(
+      new RangeInclusiveL(0, 10).isIncludedIn(new RangeInclusiveL(0, 10)));
 
-    Assert.assertFalse(new RangeInclusiveL(0, 10)
-      .isIncludedIn(new RangeInclusiveL(0, 9)));
-    Assert.assertFalse(new RangeInclusiveL(0, 10)
-      .isIncludedIn(new RangeInclusiveL(1, 10)));
+    Assert.assertFalse(
+      new RangeInclusiveL(0, 10).isIncludedIn(new RangeInclusiveL(0, 9)));
+    Assert.assertFalse(
+      new RangeInclusiveL(0, 10).isIncludedIn(new RangeInclusiveL(1, 10)));
   }
 
   @Test public void testRange_0()
@@ -70,9 +99,8 @@ import com.io7m.jranges.RangeInclusiveL;
     Assert.assertTrue(r.includesValue(9));
   }
 
-  @SuppressWarnings("unused") @Test(expected = RangeCheckException.class) public
-    void
-    testRangeBad_0()
+  @SuppressWarnings("unused") @Test(expected = RangeCheckException.class)
+  public void testRangeBad_0()
   {
     new RangeInclusiveL(1L, 0L);
   }

@@ -20,10 +20,8 @@ import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.Nullable;
 
 /**
- * <p>
- * Immutable type representing an inclusive range with <code>double</code>
- * components.
- * </p>
+ * <p> Immutable type representing an inclusive range with <code>double</code>
+ * components. </p>
  */
 
 public final class RangeInclusiveD
@@ -35,11 +33,9 @@ public final class RangeInclusiveD
   /**
    * Construct an inclusive range. The constructor enforces the invariant
    * <code>lower &lt;= upper</code>.
-   * 
-   * @param in_lower
-   *          The lower bound
-   * @param in_upper
-   *          The upper bound
+   *
+   * @param in_lower The lower bound
+   * @param in_upper The upper bound
    */
 
   public RangeInclusiveD(
@@ -65,20 +61,15 @@ public final class RangeInclusiveD
       return false;
     }
     final RangeInclusiveD other = (RangeInclusiveD) obj;
-    if (Double.doubleToLongBits(this.lower) != Double
-      .doubleToLongBits(other.lower)) {
-      return false;
-    }
-    if (Double.doubleToLongBits(this.upper) != Double
-      .doubleToLongBits(other.upper)) {
-      return false;
-    }
-    return true;
+    return (Double.doubleToLongBits(this.lower)
+            == Double.doubleToLongBits(other.lower))
+           && (Double.doubleToLongBits(
+      this.upper) == Double.doubleToLongBits(other.upper));
   }
 
   /**
    * @return The difference between the <code>upper</code> and
-   *         <code>lower</code> bound, literally <code>upper - lower</code>.
+   * <code>lower</code> bound, literally <code>upper - lower</code>.
    */
 
   public double getInterval()
@@ -117,15 +108,12 @@ public final class RangeInclusiveD
   }
 
   /**
-   * <p>
-   * Determine if the given value is included in this range.
-   * </p>
-   * 
-   * @param value
-   *          The given value
-   * @return <code>true</code> iff
-   *         <code>value &gt;= this.getLower() &amp;&amp; value &lt;= this.getUpper()</code>
-   *         .
+   * <p> Determine if the given value is included in this range. </p>
+   *
+   * @param value The given value
+   *
+   * @return <code>true</code> iff <code>value &gt;= this.getLower() &amp;&amp;
+   * value &lt;= this.getUpper()</code> .
    */
 
   public boolean includesValue(
@@ -135,15 +123,12 @@ public final class RangeInclusiveD
   }
 
   /**
-   * <p>
-   * Determine if the given range is included in this range.
-   * </p>
-   * 
-   * @param other
-   *          The given range
-   * @return <code>true</code> iff
-   *         <code>this.getLower() &gt;= other.getLower() &amp;&amp; this.getUpper() &lt;= other.getUpper()</code>
-   *         .
+   * <p> Determine if the given range is included in this range. </p>
+   *
+   * @param other The given range
+   *
+   * @return <code>true</code> iff <code>this.getLower() &gt;= other.getLower()
+   * &amp;&amp; this.getUpper() &lt;= other.getUpper()</code> .
    */
 
   public boolean isIncludedIn(

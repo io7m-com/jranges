@@ -16,14 +16,13 @@
 
 package com.io7m.jranges.tests;
 
-import java.math.BigInteger;
-
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.io7m.jnull.NullCheckException;
 import com.io7m.jranges.RangeCheckException;
 import com.io7m.jranges.RangeInclusiveB;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.math.BigInteger;
 
 @SuppressWarnings({ "null", "unused", "static-method" }) public class RangeInclusiveBTest
 {
@@ -40,11 +39,27 @@ import com.io7m.jranges.RangeInclusiveB;
 
     Assert.assertEquals(r00, r00);
     Assert.assertEquals(r00a, r00);
-
     Assert.assertNotEquals(r00, null);
     Assert.assertNotEquals(r00, BigInteger.ZERO);
     Assert.assertNotEquals(r01, r00);
     Assert.assertNotEquals(r12, r00);
+  }
+
+  @Test public void testHashcode_0()
+  {
+    final RangeInclusiveB r00 =
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO);
+    final RangeInclusiveB r00a =
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO);
+    final RangeInclusiveB r01 =
+      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ONE);
+    final RangeInclusiveB r12 =
+      new RangeInclusiveB(BigInteger.ONE, BigInteger.valueOf(2));
+
+    Assert.assertEquals(r00.hashCode(), r00.hashCode());
+    Assert.assertEquals(r00a.hashCode(), r00.hashCode());
+    Assert.assertNotEquals(r01.hashCode(), r00.hashCode());
+    Assert.assertNotEquals(r12.hashCode(), r00.hashCode());
   }
 
   @Test public void testIncluded()
