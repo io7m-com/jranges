@@ -76,12 +76,12 @@ public final class Ranges
   public static final RangeInclusiveI POSITIVE_INTEGER;
 
   static {
-    POSITIVE_LONG = new RangeInclusiveL(1, Long.MAX_VALUE);
-    NATURAL_LONG = new RangeInclusiveL(0, Long.MAX_VALUE);
+    POSITIVE_LONG = new RangeInclusiveL(1L, Long.MAX_VALUE);
+    NATURAL_LONG = new RangeInclusiveL(0L, Long.MAX_VALUE);
     POSITIVE_INTEGER = new RangeInclusiveI(1, Integer.MAX_VALUE);
     NATURAL_INTEGER = new RangeInclusiveI(0, Integer.MAX_VALUE);
-    NATURAL_DOUBLE = new RangeInclusiveD(0, Double.MAX_VALUE);
-    POSITIVE_DOUBLE = new RangeInclusiveD(1, Double.MAX_VALUE);
+    NATURAL_DOUBLE = new RangeInclusiveD(0.0, Double.MAX_VALUE);
+    POSITIVE_DOUBLE = new RangeInclusiveD(1.0, Double.MAX_VALUE);
   }
 
   private Ranges()

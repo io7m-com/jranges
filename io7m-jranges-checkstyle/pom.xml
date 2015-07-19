@@ -10,10 +10,10 @@
     <artifactId>io7m-jranges</artifactId>
     <version>2.0.0</version>
   </parent>
-  <artifactId>io7m-jranges-documentation</artifactId>
+  <artifactId>io7m-jranges-checkstyle</artifactId>
 
   <packaging>jar</packaging>
-  <description>Range handling (Documentation)</description>
+  <description>Range handling (Checkstyle policy)</description>
   <url>http://mvn.io7m.com/${project.artifactId}/</url>
   <name>${project.artifactId}</name>
 
@@ -72,29 +72,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>com.io7m.jstructural</groupId>
-      <artifactId>io7m-jstructural-tools</artifactId>
-      <version>[2.0.0, 3.0.0)</version>
-    </dependency>
-    <dependency>
-      <groupId>com.io7m.jnull</groupId>
-      <artifactId>io7m-jnull-core</artifactId>
-      <version>[1.0.0, 2.0.0)</version>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>io7m-jranges-core</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <!-- Depend on the javadoc for each module, in order to aggregate it. -->
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>io7m-jranges-core</artifactId>
-      <version>${project.version}</version>
-      <classifier>javadoc</classifier>
-    </dependency>
   </dependencies>
 
   <reporting>
@@ -116,6 +93,13 @@
   </reporting>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
     <plugins>
       <!-- Plugin versions -->
       <plugin>
@@ -133,16 +117,10 @@
         <artifactId>maven-install-plugin</artifactId>
         <version>2.4</version>
       </plugin>
-
-      <!-- Require JDK >= 1.6 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
       </plugin>
 
       <!-- Produce custom manifest in jar files -->
@@ -165,6 +143,14 @@
             </manifestEntries>
           </archive>
         </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
       <!-- Create source jar -->
@@ -176,8 +162,8 @@
           <execution>
             <phase>package</phase>
             <goals>
-              <goal>jar</goal>
-              <goal>test-jar</goal>
+              <goal>jar-no-fork</goal>
+              <goal>test-jar-no-fork</goal>
             </goals>
             <configuration>
               <archive>
@@ -197,80 +183,12 @@
         </executions>
       </plugin>
 
-      <!-- Copy documentation resources into build directory -->
+      <!-- Create javadoc jar -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
-        <executions>
-          <execution>
-            <id>copy-documentation-resources</id>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <phase>generate-resources</phase>
-            <configuration>
-              <outputDirectory>${project.build.directory}/documentation/</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>src/main/resources/com/io7m/jranges/documentation/</directory>
-                  <filtering>true</filtering>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Produce documentation -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.2.1</version>
-        <executions>
-          <execution>
-            <id>make-documentation-single</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>java</goal>
-            </goals>
-            <configuration>
-              <mainClass>com.io7m.jranges.documentation.MakeDocumentation</mainClass>
-              <arguments>
-                <argument>--xhtml-single</argument>
-                <argument>${project.build.directory}/documentation/documentation.xml</argument>
-                <argument>${project.build.directory}/documentation/</argument>
-                <argument>--xhtml-body-start</argument>
-                <argument>${project.build.directory}/documentation/brand.xml</argument>
-              </arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>make-documentation-multi</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>java</goal>
-            </goals>
-            <configuration>
-              <mainClass>com.io7m.jranges.documentation.MakeDocumentation</mainClass>
-              <arguments>
-                <argument>--xhtml-multi</argument>
-                <argument>${project.build.directory}/documentation/documentation.xml</argument>
-                <argument>${project.build.directory}/documentation/</argument>
-                <argument>--xhtml-body-start</argument>
-                <argument>${project.build.directory}/documentation/brand.xml</argument>
-              </arguments>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Javadoc handling -->
-      <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>2.9.1</version>
         <executions>
-          <!-- Produce javadoc jar for Central -->
           <execution>
             <id>attach-javadocs</id>
             <phase>package</phase>
@@ -293,70 +211,20 @@
               </archive>
             </configuration>
           </execution>
-          <!-- Produce aggregate dependency javadocs -->
-          <execution>
-            <id>javadoc-aggregate</id>
-            <phase>package</phase>
-            <goals>
-              <goal>javadoc</goal>
-            </goals>
-            <configuration>
-              <bottom><![CDATA[Copyright &#169; {currentYear} &lt;code@io7m.com&gt; http://io7m.com]]></bottom>
-              <outputDirectory>${project.build.directory}/apidocs</outputDirectory>
-              <includeDependencySources>true</includeDependencySources>
-              <includeTransitiveDependencySources>true</includeTransitiveDependencySources>
-              <dependencySourceIncludes>
-                <dependencySourceSet>com.io7m.jranges*</dependencySourceSet>
-              </dependencySourceIncludes>
-            </configuration>
-          </execution>
         </executions>
       </plugin>
 
-      <!-- Produce documentation archive -->
+      <!-- Enable code coverage for unit tests -->
       <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-          <descriptors>
-            <descriptor>src/main/assembly/documentation.xml</descriptor>
-          </descriptors>
-        </configuration>
-        <executions>
-          <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <appendAssemblyId>false</appendAssemblyId>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Unpack the documentation archive to the parent's generated site staging directory. -->
-      <!-- This is arguably abusive, but there appears to be no other way to achieve it. -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>truezip-maven-plugin</artifactId>
+        <groupId>org.sonatype.maven.plugin</groupId>
+        <artifactId>emma-maven-plugin</artifactId>
         <version>1.2</version>
-        <inherited>false</inherited>
         <executions>
           <execution>
-            <id>copy-site-documentation</id>
+            <phase>process-classes</phase>
             <goals>
-              <goal>copy</goal>
+              <goal>instrument</goal>
             </goals>
-            <phase>site</phase>
-            <configuration>
-              <verbose>true</verbose>
-              <fileset>
-                <directory>${project.build.directory}/${project.name}-${project.version}.zip/${project.name}-${project.version}/</directory>
-                <outputDirectory>${project.parent.build.directory}/staging/documentation/</outputDirectory>
-              </fileset>
-            </configuration>
           </execution>
         </executions>
       </plugin>

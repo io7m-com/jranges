@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2015 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -17,9 +17,27 @@
 package com.io7m.jranges.documentation;
 
 import com.io7m.jstructural.tools.JSCMain;
+import com.io7m.junreachable.UnreachableCodeException;
+
+/**
+ * Command line program to generate documentation.
+ */
 
 final class MakeDocumentation
 {
+  private MakeDocumentation()
+  {
+    throw new UnreachableCodeException();
+  }
+
+  /**
+   * The main entry point.
+   *
+   * @param args Command line arguments
+   *
+   * @throws Throwable On errors
+   */
+
   public static void main(
     final String[] args)
     throws Throwable

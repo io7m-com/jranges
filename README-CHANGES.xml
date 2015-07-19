@@ -8,6 +8,11 @@
     <c:item>
       <c:date>2015-07-19</c:date>
       <c:type-code-change/>
+      <c:summary>Correct parameter type of RangeInclusiveD.includesValue().</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2015-07-19</c:date>
+      <c:type-code-change/>
       <c:summary>Move all predefined ranges to Ranges.</c:summary>
     </c:item>
     <c:item>

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2015 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -45,7 +45,7 @@ public final class RangeInclusiveL
     RangeCheck.checkLessEqualLong(in_lower, "lower", in_upper, "upper");
     this.lower = in_lower;
     this.upper = in_upper;
-    this.interval = (this.upper - this.lower) + 1;
+    this.interval = (this.upper - this.lower) + 1L;
   }
 
   @Override public boolean equals(
@@ -136,14 +136,12 @@ public final class RangeInclusiveL
 
   @Override public String toString()
   {
-    final StringBuilder builder = new StringBuilder();
-    builder.append("[RangeInclusive ");
+    final StringBuilder builder = new StringBuilder(32);
+    builder.append("[RangeInclusiveL ");
     builder.append(this.lower);
     builder.append(" ");
     builder.append(this.upper);
     builder.append("]");
-    final String message = builder.toString();
-    assert message != null;
-    return message;
+    return NullCheck.notNull(builder.toString());
   }
 }

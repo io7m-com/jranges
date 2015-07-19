@@ -16,6 +16,7 @@
 
   <modules>
     <module>io7m-jranges-core</module>
+    <module>io7m-jranges-checkstyle</module>
     <module>io7m-jranges-documentation</module>
   </modules>
 

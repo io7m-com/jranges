@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2015 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -149,14 +149,12 @@ public final class RangeInclusiveB
 
   @Override public String toString()
   {
-    final StringBuilder builder = new StringBuilder();
+    final StringBuilder builder = new StringBuilder(32);
     builder.append("[RangeInclusive ");
     builder.append(this.lower);
     builder.append(" ");
     builder.append(this.upper);
     builder.append("]");
-    final String message = builder.toString();
-    assert message != null;
-    return message;
+    return NullCheck.notNull(builder.toString());
   }
 }
