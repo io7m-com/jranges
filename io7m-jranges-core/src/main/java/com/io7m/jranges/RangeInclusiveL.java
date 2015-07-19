@@ -18,13 +18,14 @@ package com.io7m.jranges;
 
 import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.Nullable;
+import net.jcip.annotations.Immutable;
 
 /**
  * <p> Immutable type representing an inclusive range with <code>long</code>
  * components. </p>
  */
 
-public final class RangeInclusiveL
+@Immutable public final class RangeInclusiveL
 {
   private final long interval;
   private final long lower;

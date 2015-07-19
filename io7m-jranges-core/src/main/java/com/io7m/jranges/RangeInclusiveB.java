@@ -18,6 +18,7 @@ package com.io7m.jranges;
 
 import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.Nullable;
+import net.jcip.annotations.Immutable;
 
 import java.math.BigInteger;
 
@@ -26,7 +27,7 @@ import java.math.BigInteger;
  * components. </p>
  */
 
-public final class RangeInclusiveB
+@Immutable public final class RangeInclusiveB
 {
   private final BigInteger interval;
   private final BigInteger lower;

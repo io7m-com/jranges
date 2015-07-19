@@ -16,6 +16,7 @@
 package com.io7m.jranges;
 
 import com.io7m.junreachable.UnreachableCodeException;
+import net.jcip.annotations.ThreadSafe;
 
 /**
  * Predefined ranges.
@@ -23,11 +24,13 @@ import com.io7m.junreachable.UnreachableCodeException;
  * @since 2.0.0
  */
 
-public final class Ranges
+@ThreadSafe public final class Ranges
 {
   /**
    * The inclusive range of numbers greater than or equal to <code>0</code>,
    * <code>[0, {@link Double#MAX_VALUE}]</code>.
+   *
+   * @since 2.0.0
    */
 
   public static final RangeInclusiveD NATURAL_DOUBLE;
@@ -53,6 +56,8 @@ public final class Ranges
   /**
    * The inclusive range of numbers greater than or equal to <code>1</code>,
    * <code>[1, {@link Double#MAX_VALUE}]</code>.
+   *
+   * @since 2.0.0
    */
 
   public static final RangeInclusiveD POSITIVE_DOUBLE;

@@ -19,6 +19,7 @@ package com.io7m.jranges;
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jnull.NullCheck;
 import com.io7m.junreachable.UnreachableCodeException;
+import net.jcip.annotations.ThreadSafe;
 
 import java.math.BigInteger;
 
@@ -33,11 +34,8 @@ import java.math.BigInteger;
  * @see RangeCheckException
  */
 
-@EqualityReference public final class RangeCheck
+@EqualityReference @ThreadSafe public final class RangeCheck
 {
-
-
-
   private RangeCheck()
   {
     throw new UnreachableCodeException();
