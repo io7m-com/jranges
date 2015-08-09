@@ -2,6 +2,16 @@
 <c:changelog xmlns:c="http://schemas.io7m.com/changelog/2.0.0">
   <c:project>io7m-jranges</c:project>
 
+  <c:release c:ticket-system="com.github.io7m.jranges">
+    <c:date>2015-08-09</c:date>
+    <c:version>2.0.1</c:version>
+    <c:item>
+      <c:date>2015-08-09</c:date>
+      <c:type-code-new/>
+      <c:summary>Migrate to GitHub.</c:summary>
+    </c:item>
+  </c:release>
+
   <c:release c:ticket-system="com.io7m.fossil.jranges">
     <c:date>2015-07-19</c:date>
     <c:version>2.0.0</c:version>
@@ -50,4 +60,9 @@
   <c:ticket-system xml:id="com.io7m.fossil.jranges">
     <c:ticket-url>http://fossil.io7m.com/repo.cgi/io7m-jranges/tktview?name=</c:ticket-url>
   </c:ticket-system>
+
+  <c:ticket-system xml:id="com.github.io7m.jranges">
+    <c:ticket-url>http://github.com/io7m/jranges/issues/</c:ticket-url>
+  </c:ticket-system>
+
 </c:changelog>

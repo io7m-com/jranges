@@ -8,121 +8,26 @@
   <parent>
     <groupId>com.io7m.jranges</groupId>
     <artifactId>io7m-jranges</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
   </parent>
   <artifactId>io7m-jranges-checkstyle</artifactId>
 
   <packaging>jar</packaging>
   <description>Range handling (Checkstyle policy)</description>
-  <url>http://mvn.io7m.com/${project.artifactId}/</url>
+  <url>http://io7m.github.io/jranges</url>
   <name>${project.artifactId}</name>
 
-  <licenses>
-    <license>
-      <name>ISC License</name>
-      <url>http://www.opensource.org/licenses/isc-license.txt</url>
-    </license>
-  </licenses>
-
   <scm>
-    <url>http://fossil.io7m.com/repo.cgi/io7m-jranges</url>
-    <connection>scm:http://fossil.io7m.com/repo.cgi/io7m-jranges</connection>
-    <developerConnection>scm:http://fossil.io7m.com/repo.cgi/io7m-jranges</developerConnection>
+    <url>${project.parent.scm.url}</url>
+    <connection>${project.parent.scm.connection}</connection>
+    <developerConnection>${project.parent.scm.developerConnection}</developerConnection>
   </scm>
-
-  <developers>
-    <developer>
-      <id>io7m</id>
-      <name>io7m</name>
-      <email>code@io7m.com</email>
-      <url>http://io7m.com</url>
-    </developer>
-  </developers>
-
-  <issueManagement>
-    <url>http://fossil.io7m.com/repo.cgi/io7m-jranges</url>
-    <system>Fossil</system>
-  </issueManagement>
-
-  <distributionManagement>
-    <site>
-      <id>io7m</id>
-      <name>io7m.com</name>
-      <url>${project.url}</url>
-    </site>
-  </distributionManagement>
-
-  <mailingLists>
-    <mailingList>
-      <name>io7m-jranges</name>
-      <subscribe>io7m-jranges-join@lists.io7m.com</subscribe>
-      <unsubscribe>io7m-jranges-leave@lists.io7m.com</unsubscribe>
-      <post>io7m-jranges@lists.io7m.com</post>
-      <archive>http://lists.io7m.com/io7m-jranges/archive</archive>
-    </mailingList>
-  </mailingLists>
-
-  <prerequisites>
-    <maven>2.2.1</maven>
-  </prerequisites>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
 
   <dependencies>
   </dependencies>
 
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.8</version>
-        <configuration>
-          <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>3.4</version>
-      </plugin>
-    </plugins>
-  </reporting>
-
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
-
     <plugins>
-      <!-- Plugin versions -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>2.6.1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.8.2</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>2.5.2</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.7</version>
-      </plugin>
-
       <!-- Produce custom manifest in jar files -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -143,14 +48,6 @@
             </manifestEntries>
           </archive>
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-              <goal>test-jar</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
       <!-- Create source jar -->
@@ -162,8 +59,8 @@
           <execution>
             <phase>package</phase>
             <goals>
-              <goal>jar-no-fork</goal>
-              <goal>test-jar-no-fork</goal>
+              <goal>jar</goal>
+              <goal>test-jar</goal>
             </goals>
             <configuration>
               <archive>
@@ -213,61 +110,7 @@
           </execution>
         </executions>
       </plugin>
-
-      <!-- Enable code coverage for unit tests -->
-      <plugin>
-        <groupId>org.sonatype.maven.plugin</groupId>
-        <artifactId>emma-maven-plugin</artifactId>
-        <version>1.2</version>
-        <executions>
-          <execution>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>instrument</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
-
-    <!-- Allow deployment over ssh -->
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ssh-external</artifactId>
-        <version>2.2</version>
-      </extension>
-    </extensions>
   </build>
-
-  <!-- Sign artifacts when deploying to io7m -->
-  <profiles>
-    <profile>
-      <id>io7m-deployment-private</id>
-      <activation>
-        <property>
-          <name>io7m.deployment</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.4</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 
 </project>
