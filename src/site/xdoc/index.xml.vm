@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
   <properties>
-    <title>io7m-jranges</title>
+    <title>jranges</title>
   </properties>
 
   <body>
@@ -18,6 +18,7 @@
         <li>Immutable range types, for specifying ranges over all the available integral and floating point types.</li>
         <li>Functions for checking that values fall within given ranges.</li>
         <li>Full unit test coverage.</li>
+        <li><a href="https://www.osgi.org/">OSGi</a>-ready.</li>
         <li>ISC license.</li>
       </ul>
     </subsection>
