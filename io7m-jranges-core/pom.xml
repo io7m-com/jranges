@@ -38,7 +38,7 @@
     </dependency>
 
     <dependency>
-      <groupId>com.github.stephenc.jcip</groupId>
+      <groupId>com.io7m.jcip</groupId>
       <artifactId>jcip-annotations</artifactId>
     </dependency>
 
