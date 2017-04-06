@@ -7,15 +7,20 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.io7m.jranges</groupId>
-    <artifactId>io7m-jranges</artifactId>
-    <version>2.0.3</version>
+    <artifactId>com.io7m.jranges</artifactId>
+    <version>2.0.4</version>
   </parent>
-  <artifactId>io7m-jranges-documentation</artifactId>
+  <artifactId>com.io7m.jranges.documentation</artifactId>
 
   <packaging>jar</packaging>
-  <name>io7m-jranges-documentation</name>
+  <name>com.io7m.jranges.documentation</name>
   <description>Range handling (Documentation)</description>
   <url>http://io7m.github.io/jranges/</url>
+
+  <properties>
+    <io7m.api.previousArtifactId>io7m-jranges-documentation</io7m.api.previousArtifactId>
+    <mdep.analyze.skip>true</mdep.analyze.skip>
+  </properties>
 
   <scm>
     <url>${project.parent.scm.url}</url>
@@ -26,11 +31,11 @@
   <dependencies>
     <dependency>
       <groupId>com.io7m.jnull</groupId>
-      <artifactId>io7m-jnull-core</artifactId>
+      <artifactId>com.io7m.jnull.core</artifactId>
     </dependency>
     <dependency>
       <groupId>com.io7m.junreachable</groupId>
-      <artifactId>io7m-junreachable-core</artifactId>
+      <artifactId>com.io7m.junreachable.core</artifactId>
     </dependency>
   </dependencies>
 
