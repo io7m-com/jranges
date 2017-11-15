@@ -16,12 +16,13 @@
 
 package com.io7m.jranges.documentation;
 
-import com.io7m.jnull.NullCheck;
+import java.util.Objects;
 import com.io7m.junreachable.UnreachableCodeException;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Objects;
 
 /**
  * Functions for retrieving the documentation.
@@ -44,7 +45,7 @@ public final class RDocumentation
       final URL url = RDocumentation.class.getResource(
         "/com/io7m/jranges/documentation/documentation.xml");
       assert url != null;
-      return NullCheck.notNull(url.toURI());
+      return Objects.requireNonNull(url.toURI());
     } catch (final URISyntaxException e) {
       throw new AssertionError(e);
     }

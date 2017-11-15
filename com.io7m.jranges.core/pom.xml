@@ -17,33 +17,17 @@
   <description>Range handling (Core)</description>
   <url>http://io7m.github.io/jranges/</url>
 
-  <properties>
-    <io7m.api.previousArtifactId>io7m-jranges-core</io7m.api.previousArtifactId>
-  </properties>
-
-  <scm>
-    <url>${project.parent.scm.url}</url>
-    <connection>${project.parent.scm.connection}</connection>
-    <developerConnection>${project.parent.scm.developerConnection}</developerConnection>
-  </scm>
-
   <dependencies>
-    <dependency>
-      <groupId>com.io7m.jnull</groupId>
-      <artifactId>com.io7m.jnull.core</artifactId>
-    </dependency>
     <dependency>
       <groupId>com.io7m.junreachable</groupId>
       <artifactId>com.io7m.junreachable.core</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.io7m.jequality</groupId>
-      <artifactId>com.io7m.jequality.core</artifactId>
-    </dependency>
 
     <dependency>
-      <groupId>com.io7m.jcip</groupId>
-      <artifactId>jcip-annotations</artifactId>
+      <groupId>org.immutables</groupId>
+      <artifactId>value</artifactId>
+      <version>${io7m.org.immutables.version}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -59,6 +43,21 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
+      </plugin>
+
+      <!-- Process annotations -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <annotationProcessorPaths>
+            <dependency>
+              <groupId>org.immutables</groupId>
+              <artifactId>value</artifactId>
+              <version>${io7m.org.immutables.version}</version>
+            </dependency>
+          </annotationProcessorPaths>
+        </configuration>
       </plugin>
 
       <!-- Produce OSGi bundle -->

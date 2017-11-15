@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ul>
+    <li>Immutable range types, for specifying ranges over all the available integral and floating point types.</li>
+    <li>Functions for checking that values fall within given ranges.</li>
+    <li>Full unit test coverage.</li>
+    <li><a href="https://www.osgi.org/">OSGi</a>-ready.</li>
+    <li>ISC license.</li>
+  </ul>
+</div>

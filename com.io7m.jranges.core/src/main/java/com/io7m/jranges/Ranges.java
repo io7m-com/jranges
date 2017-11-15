@@ -16,7 +16,6 @@
 package com.io7m.jranges;
 
 import com.io7m.junreachable.UnreachableCodeException;
-import net.jcip.annotations.ThreadSafe;
 
 /**
  * Predefined ranges.
@@ -24,11 +23,11 @@ import net.jcip.annotations.ThreadSafe;
  * @since 2.0.0
  */
 
-@ThreadSafe public final class Ranges
+public final class Ranges
 {
   /**
-   * The inclusive range of numbers greater than or equal to {@code 0},
-   * {@code [0, {@link Double#MAX_VALUE}]}.
+   * The inclusive range of numbers greater than or equal to {@code 0}, {@code
+   * [0, {@link Double#MAX_VALUE}]}.
    *
    * @since 2.0.0
    */
@@ -54,8 +53,8 @@ import net.jcip.annotations.ThreadSafe;
   public static final RangeInclusiveI NATURAL_INTEGER;
 
   /**
-   * The inclusive range of numbers greater than or equal to {@code 1},
-   * {@code [1, {@link Double#MAX_VALUE}]}.
+   * The inclusive range of numbers greater than or equal to {@code 1}, {@code
+   * [1, {@link Double#MAX_VALUE}]}.
    *
    * @since 2.0.0
    */
@@ -81,12 +80,12 @@ import net.jcip.annotations.ThreadSafe;
   public static final RangeInclusiveI POSITIVE_INTEGER;
 
   static {
-    POSITIVE_LONG = new RangeInclusiveL(1L, Long.MAX_VALUE);
-    NATURAL_LONG = new RangeInclusiveL(0L, Long.MAX_VALUE);
-    POSITIVE_INTEGER = new RangeInclusiveI(1, Integer.MAX_VALUE);
-    NATURAL_INTEGER = new RangeInclusiveI(0, Integer.MAX_VALUE);
-    NATURAL_DOUBLE = new RangeInclusiveD(0.0, Double.MAX_VALUE);
-    POSITIVE_DOUBLE = new RangeInclusiveD(1.0, Double.MAX_VALUE);
+    POSITIVE_LONG = RangeInclusiveL.of(1L, Long.MAX_VALUE);
+    NATURAL_LONG = RangeInclusiveL.of(0L, Long.MAX_VALUE);
+    POSITIVE_INTEGER = RangeInclusiveI.of(1, Integer.MAX_VALUE);
+    NATURAL_INTEGER = RangeInclusiveI.of(0, Integer.MAX_VALUE);
+    NATURAL_DOUBLE = RangeInclusiveD.of(0.0, Double.MAX_VALUE);
+    POSITIVE_DOUBLE = RangeInclusiveD.of(1.0, Double.MAX_VALUE);
   }
 
   private Ranges()

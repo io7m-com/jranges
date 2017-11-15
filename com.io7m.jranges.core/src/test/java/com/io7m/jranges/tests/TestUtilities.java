@@ -16,7 +16,6 @@
 
 package com.io7m.jranges.tests;
 
-import com.io7m.jnull.NonNull;
 import com.io7m.junreachable.UnreachableCodeException;
 
 public final class TestUtilities
@@ -28,8 +27,8 @@ public final class TestUtilities
     throw new UnreachableCodeException();
   }
 
-  @SuppressWarnings({ "null", "unchecked" }) static @NonNull
-  <A> A actuallyNull()
+  @SuppressWarnings({"null", "unchecked"})
+  static <A> A actuallyNull()
   {
     return (A) TestUtilities.z;
   }
