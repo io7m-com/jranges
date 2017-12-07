@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"com.io7m.jranges.core"},{"l":"com.io7m.jranges.documentation"}]

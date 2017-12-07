@@ -1,0 +1,1 @@
+packageSearchIndex = [{"m":"com.io7m.jranges.core","l":"com.io7m.jranges"},{"m":"com.io7m.jranges.documentation","l":"com.io7m.jranges.documentation"}]
