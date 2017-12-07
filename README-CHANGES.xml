@@ -1,109 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<c:changelog xmlns:c="http://schemas.io7m.com/changelog/2.0.0">
-  <c:project>com.io7m.jranges</c:project>
-
-  <c:release c:ticket-system="com.github.io7m.jranges">
-    <c:date>2017-04-06</c:date>
-    <c:version>2.0.4</c:version>
-    <c:item>
-      <c:date>2017-04-06</c:date>
-      <c:type-code-fix/>
-      <c:summary>Use primogenitor, renaming all modules to the new OSGi conventions.</c:summary>
-    </c:item>
-  </c:release>
-
-  <c:release c:ticket-system="com.github.io7m.jranges">
-    <c:date>2016-08-04</c:date>
-    <c:version>2.0.3</c:version>
-    <c:item>
-      <c:date>2016-08-04</c:date>
-      <c:type-code-fix/>
-      <c:ticket>1</c:ticket>
-      <c:summary>Switch to using com.io7m.jcip bundle to fix the produced OSGi bundle.</c:summary>
-    </c:item>
-  </c:release>
-
-  <c:release c:ticket-system="com.github.io7m.jranges">
-    <c:date>2016-08-03</c:date>
-    <c:version>2.0.2</c:version>
-    <c:item>
-      <c:date>2016-08-03</c:date>
-      <c:type-code-fix/>
-      <c:summary>Update POM files to 2016 standards. Update plugins.</c:summary>
-    </c:item>
-    <c:item>
-      <c:date>2016-08-03</c:date>
-      <c:type-code-fix/>
-      <c:summary>The packaged jar is now an OSGi bundle.</c:summary>
-    </c:item>
-    <c:item>
-      <c:date>2016-08-03</c:date>
-      <c:type-code-change/>
-      <c:summary>The package will no longer compile on JDK 6 due to Checkstyle, but the compiled code is still JDK 6 compatible.</c:summary>
-    </c:item>
-  </c:release>
-
-  <c:release c:ticket-system="com.github.io7m.jranges">
-    <c:date>2015-08-09</c:date>
-    <c:version>2.0.1</c:version>
-    <c:item>
-      <c:date>2015-08-09</c:date>
-      <c:type-code-new/>
-      <c:summary>Migrate to GitHub.</c:summary>
-    </c:item>
-  </c:release>
-
-  <c:release c:ticket-system="com.io7m.fossil.jranges">
-    <c:date>2015-07-19</c:date>
-    <c:version>2.0.0</c:version>
-    <c:item>
-      <c:date>2015-07-19</c:date>
-      <c:type-code-change/>
-      <c:summary>Correct parameter type of RangeInclusiveD.includesValue().</c:summary>
-    </c:item>
-    <c:item>
-      <c:date>2015-07-19</c:date>
-      <c:type-code-change/>
-      <c:summary>Move all predefined ranges to Ranges.</c:summary>
-    </c:item>
-    <c:item>
-      <c:date>2015-07-19</c:date>
-      <c:type-code-change/>
-      <c:summary>Suffix all previously unsuffixed method names with Long for uniformity.</c:summary>
-    </c:item>
-    <c:item>
-      <c:date>2015-07-19</c:date>
-      <c:type-code-new/>
-      <c:summary>Add JCIP annotations.</c:summary>
-    </c:item>
-    <c:item>
-      <c:date>2014-12-03</c:date>
-      <c:type-code-fix/>
-      <c:summary>Fix javadoc comments for Java 8's doclint.</c:summary>
-    </c:item>
-    <c:item>
-      <c:date>2014-12-03</c:date>
-      <c:type-code-fix/>
-      <c:summary>Ensure source jars for unit tests are created.</c:summary>
-    </c:item>
-  </c:release>
-
-  <c:release c:ticket-system="com.io7m.fossil.jranges">
-    <c:date>2014-06-22</c:date>
-    <c:version>1.0.0</c:version>
-    <c:item>
-      <c:date>2014-06-22</c:date>
-      <c:type-code-new/>
-      <c:summary>Initial release.</c:summary>
-    </c:item>
-  </c:release>
-
-  <c:ticket-system xml:id="com.io7m.fossil.jranges">
-    <c:ticket-url>http://fossil.io7m.com/repo.cgi/io7m-jranges/tktview?name=</c:ticket-url>
-  </c:ticket-system>
-
-  <c:ticket-system xml:id="com.github.io7m.jranges">
-    <c:ticket-url>http://github.com/io7m/jranges/issues/</c:ticket-url>
-  </c:ticket-system>
-
+<c:changelog xmlns:c="urn:com.io7m.changelog:4.0" project="com.io7m.jranges">
+  <c:releases>
+    <c:release date="2014-06-22T00:00:00+00:00" ticket-system="com.io7m.fossil.jranges" version="1.0.0">
+      <c:changes>
+        <c:change date="2014-06-22T00:00:00+00:00" summary="Initial release."/>
+      </c:changes>
+    </c:release>
+    <c:release date="2015-07-19T00:00:00+00:00" ticket-system="com.io7m.fossil.jranges" version="2.0.0">
+      <c:changes>
+        <c:change compatible="false" date="2015-07-19T00:00:00+00:00" summary="Correct parameter type of RangeInclusiveD.includesValue()."/>
+        <c:change compatible="false" date="2015-07-19T00:00:00+00:00" summary="Move all predefined ranges to Ranges."/>
+        <c:change compatible="false" date="2015-07-19T00:00:00+00:00" summary="Suffix all previously unsuffixed method names with Long for uniformity."/>
+        <c:change date="2015-07-19T00:00:00+00:00" summary="Add JCIP annotations."/>
+        <c:change date="2014-12-03T00:00:00+00:00" summary="Fix javadoc comments for Java 8's doclint."/>
+        <c:change date="2014-12-03T00:00:00+00:00" summary="Ensure source jars for unit tests are created."/>
+      </c:changes>
+    </c:release>
+    <c:release date="2015-08-09T00:00:00+00:00" ticket-system="com.github.io7m.jranges" version="2.0.1">
+      <c:changes>
+        <c:change date="2015-08-09T00:00:00+00:00" summary="Migrate to GitHub."/>
+      </c:changes>
+    </c:release>
+    <c:release date="2016-08-03T00:00:00+00:00" ticket-system="com.github.io7m.jranges" version="2.0.2">
+      <c:changes>
+        <c:change date="2016-08-03T00:00:00+00:00" summary="Update POM files to 2016 standards. Update plugins."/>
+        <c:change date="2016-08-03T00:00:00+00:00" summary="The packaged jar is now an OSGi bundle."/>
+        <c:change compatible="false" date="2016-08-03T00:00:00+00:00" summary="The package will no longer compile on JDK 6 due to Checkstyle, but the compiled code is still JDK 6 compatible."/>
+      </c:changes>
+    </c:release>
+    <c:release date="2016-08-04T00:00:00+00:00" ticket-system="com.github.io7m.jranges" version="2.0.3">
+      <c:changes>
+        <c:change date="2016-08-04T00:00:00+00:00" summary="Switch to using com.io7m.jcip bundle to fix the produced OSGi bundle.">
+          <c:tickets>
+            <c:ticket id="1"/>
+          </c:tickets>
+        </c:change>
+      </c:changes>
+    </c:release>
+    <c:release date="2017-04-06T00:00:00+00:00" ticket-system="com.github.io7m.jranges" version="2.0.4">
+      <c:changes>
+        <c:change date="2017-04-06T00:00:00+00:00" summary="Use primogenitor, renaming all modules to the new OSGi conventions."/>
+      </c:changes>
+    </c:release>
+    <c:release date="2017-11-15T18:37:09+00:00" ticket-system="com.github.io7m.jranges" version="3.0.0">
+      <c:changes>
+        <c:change compatible="false" date="2017-11-15T00:00:00+00:00" summary="Replace implementation with Immutables.org generated types"/>
+        <c:change compatible="false" date="2017-11-15T00:00:00+00:00" summary="All modules are now Java 9 modules. JDK 9 is now required."/>
+        <c:change compatible="false" date="2017-11-15T00:00:00+00:00" summary="Removed dependency on com.io7m.jnull."/>
+        <c:change compatible="false" date="2017-11-15T18:37:09+00:00" summary="Removed dependency on com.io7m.jequality."/>
+      </c:changes>
+    </c:release>
+  </c:releases>
+  <c:ticket-systems>
+    <c:ticket-system default="false" id="com.io7m.fossil.jranges" url="http://fossil.io7m.com/repo.cgi/io7m-jranges/tktview?name="/>
+    <c:ticket-system default="true" id="com.github.io7m.jranges" url="http://github.com/io7m/jranges/issues/"/>
+  </c:ticket-systems>
 </c:changelog>

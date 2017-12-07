@@ -1,10 +1,10 @@
 /*
  * Copyright © 2015 <code@io7m.com> http://io7m.com
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
@@ -14,39 +14,13 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package com.io7m.jranges.documentation;
-
-import com.io7m.jnull.NullCheck;
-import com.io7m.junreachable.UnreachableCodeException;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-
 /**
- * Functions for retrieving the documentation.
+ * Documentation.
  */
 
-public final class RDocumentation
+module com.io7m.jranges.documentation
 {
-  private RDocumentation()
-  {
-    throw new UnreachableCodeException();
-  }
+  requires com.io7m.jranges.core;
 
-  /**
-   * @return The URI of the XML documentation file
-   */
-
-  public static URI getDocumentationXMLLocation()
-  {
-    try {
-      final URL url = RDocumentation.class.getResource(
-        "/com/io7m/jranges/documentation/documentation.xml");
-      assert url != null;
-      return NullCheck.notNull(url.toURI());
-    } catch (final URISyntaxException e) {
-      throw new AssertionError(e);
-    }
-  }
+  exports com.io7m.jranges.documentation;
 }

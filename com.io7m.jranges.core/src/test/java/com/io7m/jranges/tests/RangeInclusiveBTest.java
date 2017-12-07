@@ -16,7 +16,6 @@
 
 package com.io7m.jranges.tests;
 
-import com.io7m.jnull.NullCheckException;
 import com.io7m.jranges.RangeCheckException;
 import com.io7m.jranges.RangeInclusiveB;
 import org.junit.Assert;
@@ -24,18 +23,19 @@ import org.junit.Test;
 
 import java.math.BigInteger;
 
-@SuppressWarnings({ "null", "unused", "static-method" }) public class RangeInclusiveBTest
+public final class RangeInclusiveBTest
 {
-  @Test public void testEquals_0()
+  @Test
+  public void testEquals_0()
   {
     final RangeInclusiveB r00 =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO);
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.ZERO);
     final RangeInclusiveB r00a =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO);
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.ZERO);
     final RangeInclusiveB r01 =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ONE);
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.ONE);
     final RangeInclusiveB r12 =
-      new RangeInclusiveB(BigInteger.ONE, BigInteger.valueOf(2));
+      RangeInclusiveB.of(BigInteger.ONE, BigInteger.valueOf(2));
 
     Assert.assertEquals(r00, r00);
     Assert.assertEquals(r00a, r00);
@@ -45,16 +45,17 @@ import java.math.BigInteger;
     Assert.assertNotEquals(r12, r00);
   }
 
-  @Test public void testHashcode_0()
+  @Test
+  public void testHashcode_0()
   {
     final RangeInclusiveB r00 =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO);
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.ZERO);
     final RangeInclusiveB r00a =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ZERO);
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.ZERO);
     final RangeInclusiveB r01 =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.ONE);
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.ONE);
     final RangeInclusiveB r12 =
-      new RangeInclusiveB(BigInteger.ONE, BigInteger.valueOf(2));
+      RangeInclusiveB.of(BigInteger.ONE, BigInteger.valueOf(2));
 
     Assert.assertEquals(r00.hashCode(), r00.hashCode());
     Assert.assertEquals(r00a.hashCode(), r00.hashCode());
@@ -62,31 +63,40 @@ import java.math.BigInteger;
     Assert.assertNotEquals(r12.hashCode(), r00.hashCode());
   }
 
-  @Test public void testIncluded()
+  @Test
+  public void testIncluded()
   {
-    Assert.assertTrue(new RangeInclusiveB(BigInteger.ZERO, BigInteger.TEN)
-      .isIncludedIn(new RangeInclusiveB(BigInteger.ZERO, BigInteger.TEN)));
+    Assert.assertTrue(RangeInclusiveB.of(BigInteger.ZERO, BigInteger.TEN)
+                        .isIncludedIn(RangeInclusiveB.of(
+                          BigInteger.ZERO,
+                          BigInteger.TEN)));
 
-    Assert.assertFalse(new RangeInclusiveB(BigInteger.ZERO, BigInteger.TEN)
-      .isIncludedIn(new RangeInclusiveB(BigInteger.ZERO, BigInteger
-        .valueOf(9))));
-    Assert.assertFalse(new RangeInclusiveB(BigInteger.ZERO, BigInteger.TEN)
-      .isIncludedIn(new RangeInclusiveB(BigInteger.ONE, BigInteger.TEN)));
+    Assert.assertFalse(RangeInclusiveB.of(BigInteger.ZERO, BigInteger.TEN)
+                         .isIncludedIn(RangeInclusiveB.of(
+                           BigInteger.ZERO,
+                           BigInteger
+                             .valueOf(9))));
+    Assert.assertFalse(RangeInclusiveB.of(BigInteger.ZERO, BigInteger.TEN)
+                         .isIncludedIn(RangeInclusiveB.of(
+                           BigInteger.ONE,
+                           BigInteger.TEN)));
   }
 
-  @Test public void testRange_0()
+  @Test
+  public void testRange_0()
   {
     final RangeInclusiveB r =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.valueOf(9));
-    Assert.assertEquals(BigInteger.ZERO, r.getLower());
-    Assert.assertEquals(BigInteger.valueOf(9), r.getUpper());
-    Assert.assertEquals(BigInteger.TEN, r.getInterval());
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.valueOf(9));
+    Assert.assertEquals(BigInteger.ZERO, r.lower());
+    Assert.assertEquals(BigInteger.valueOf(9), r.upper());
+    Assert.assertEquals(BigInteger.TEN, r.interval());
   }
 
-  @Test public void testRange_1()
+  @Test
+  public void testRange_1()
   {
     final RangeInclusiveB r =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.valueOf(9));
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.valueOf(9));
 
     Assert.assertTrue(r.includesValue(BigInteger.ZERO));
     Assert.assertTrue(r.includesValue(BigInteger.ONE));
@@ -94,16 +104,18 @@ import java.math.BigInteger;
     Assert.assertFalse(r.includesValue(BigInteger.valueOf(10)));
   }
 
-  @Test(expected = NullCheckException.class) public void testRange_2()
+  @Test(expected = NullPointerException.class)
+  public void testRange_2()
   {
     final RangeInclusiveB r =
-      new RangeInclusiveB(BigInteger.ZERO, BigInteger.valueOf(9));
+      RangeInclusiveB.of(BigInteger.ZERO, BigInteger.valueOf(9));
 
     r.includesValue((BigInteger) TestUtilities.actuallyNull());
   }
 
-  @Test(expected = RangeCheckException.class) public void testRangeBad_0()
+  @Test(expected = RangeCheckException.class)
+  public void testRangeBad_0()
   {
-    new RangeInclusiveB(BigInteger.ONE, BigInteger.ZERO);
+    RangeInclusiveB.of(BigInteger.ONE, BigInteger.ZERO);
   }
 }

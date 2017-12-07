@@ -16,12 +16,10 @@
 
 package com.io7m.jranges;
 
-import com.io7m.jequality.annotations.EqualityReference;
-import com.io7m.jnull.NullCheck;
 import com.io7m.junreachable.UnreachableCodeException;
-import net.jcip.annotations.ThreadSafe;
 
 import java.math.BigInteger;
+import java.util.Objects;
 
 /**
  * <p> Functions for enforcing range constraints at run time. </p> <p> The
@@ -34,7 +32,7 @@ import java.math.BigInteger;
  * @see RangeCheckException
  */
 
-@EqualityReference @ThreadSafe public final class RangeCheck
+public final class RangeCheck
 {
   private RangeCheck()
   {
@@ -42,8 +40,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is greater than
-   * {@code in_lower} (named {@code lower_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than {@code
+   * in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -61,8 +59,8 @@ import java.math.BigInteger;
     final long in_lower,
     final String lower_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(lower_name, "Lower bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(lower_name, "Lower bound name");
 
     if (x > in_lower) {
       return x;
@@ -75,8 +73,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is greater than
-   * {@code in_lower} (named {@code lower_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than {@code
+   * in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -94,8 +92,8 @@ import java.math.BigInteger;
     final int in_lower,
     final String lower_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(lower_name, "Lower bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(lower_name, "Lower bound name");
 
     if (x > in_lower) {
       return x;
@@ -108,8 +106,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is greater than
-   * {@code in_lower} (named {@code lower_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than {@code
+   * in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -125,10 +123,10 @@ import java.math.BigInteger;
     final BigInteger in_lower,
     final String lower_name)
   {
-    NullCheck.notNull(x, "Value");
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(in_lower, "Lower");
-    NullCheck.notNull(lower_name, "Lower bound name");
+    Objects.requireNonNull(x, "Value");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(in_lower, "Lower");
+    Objects.requireNonNull(lower_name, "Lower bound name");
 
     if (x.compareTo(in_lower) > 0) {
       return x;
@@ -141,8 +139,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is greater than
-   * {@code in_lower} (named {@code lower_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than {@code
+   * in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -158,8 +156,8 @@ import java.math.BigInteger;
     final double in_lower,
     final String lower_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(lower_name, "Lower bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(lower_name, "Lower bound name");
 
     if (x > in_lower) {
       return x;
@@ -172,8 +170,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is greater than
-   * or equal to {@code in_lower} (named {@code lower_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than or equal
+   * to {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -191,8 +189,8 @@ import java.math.BigInteger;
     final long in_lower,
     final String lower_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(lower_name, "Lower bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(lower_name, "Lower bound name");
 
     if (x >= in_lower) {
       return x;
@@ -205,8 +203,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is greater than
-   * or equal to {@code in_lower} (named {@code lower_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than or equal
+   * to {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -224,8 +222,8 @@ import java.math.BigInteger;
     final int in_lower,
     final String lower_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(lower_name, "Lower bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(lower_name, "Lower bound name");
 
     if (x >= in_lower) {
       return x;
@@ -238,8 +236,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is greater than
-   * or equal to {@code in_lower} (named {@code lower_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than or equal
+   * to {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -255,10 +253,10 @@ import java.math.BigInteger;
     final BigInteger in_lower,
     final String lower_name)
   {
-    NullCheck.notNull(x, "Value");
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(in_lower, "Lower");
-    NullCheck.notNull(lower_name, "Lower bound name");
+    Objects.requireNonNull(x, "Value");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(in_lower, "Lower");
+    Objects.requireNonNull(lower_name, "Lower bound name");
 
     if (x.compareTo(in_lower) >= 0) {
       return x;
@@ -271,8 +269,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is greater than
-   * or equal to {@code in_lower} (named {@code lower_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is greater than or equal
+   * to {@code in_lower} (named {@code lower_name}). </p>
    *
    * @param x          The checked value
    * @param in_lower   The lower bound
@@ -288,8 +286,8 @@ import java.math.BigInteger;
     final double in_lower,
     final String lower_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(lower_name, "Lower bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(lower_name, "Lower bound name");
 
     if (x >= in_lower) {
       return x;
@@ -302,8 +300,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is included in
-   * the given range {@code range} (named {@code range_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is included in the given
+   * range {@code range} (named {@code range_name}). </p>
    *
    * @param x          The checked value
    * @param x_name     The name of the checked value
@@ -321,9 +319,9 @@ import java.math.BigInteger;
     final RangeInclusiveL range,
     final String range_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(range, "Range");
-    NullCheck.notNull(range_name, "Range name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(range, "Range");
+    Objects.requireNonNull(range_name, "Range name");
 
     if (range.includesValue(x)) {
       return x;
@@ -331,18 +329,18 @@ import java.math.BigInteger;
 
     final String message = String.format(
       "%s <= %s (%s) <= %s (%s) == false",
-      Long.valueOf(range.getLower()),
+      Long.valueOf(range.lower()),
       x_name,
       Long.valueOf(x),
-      Long.valueOf(range.getUpper()),
+      Long.valueOf(range.upper()),
       range_name);
     assert message != null;
     throw new RangeCheckException(message);
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is included in
-   * the given range {@code range} (named {@code range_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is included in the given
+   * range {@code range} (named {@code range_name}). </p>
    *
    * @param x          The checked value
    * @param x_name     The name of the checked value
@@ -360,9 +358,9 @@ import java.math.BigInteger;
     final RangeInclusiveI range,
     final String range_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(range, "Range");
-    NullCheck.notNull(range_name, "Range name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(range, "Range");
+    Objects.requireNonNull(range_name, "Range name");
 
     if (range.includesValue(x)) {
       return x;
@@ -370,18 +368,18 @@ import java.math.BigInteger;
 
     final String message = String.format(
       "%s <= %s (%s) <= %s (%s) == false",
-      Integer.valueOf(range.getLower()),
+      Integer.valueOf(range.lower()),
       x_name,
       Integer.valueOf(x),
-      Integer.valueOf(range.getUpper()),
+      Integer.valueOf(range.upper()),
       range_name);
     assert message != null;
     throw new RangeCheckException(message);
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is included in
-   * the given range {@code range} (named {@code range_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is included in the given
+   * range {@code range} (named {@code range_name}). </p>
    *
    * @param x          The checked value
    * @param x_name     The name of the checked value
@@ -397,10 +395,10 @@ import java.math.BigInteger;
     final RangeInclusiveB range,
     final String range_name)
   {
-    NullCheck.notNull(x, "Value");
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(range, "Range");
-    NullCheck.notNull(range_name, "Range name");
+    Objects.requireNonNull(x, "Value");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(range, "Range");
+    Objects.requireNonNull(range_name, "Range name");
 
     if (range.includesValue(x)) {
       return x;
@@ -408,18 +406,18 @@ import java.math.BigInteger;
 
     final String message = String.format(
       "%s <= %s (%s) <= %s (%s) == false",
-      range.getLower(),
+      range.lower(),
       x_name,
       x,
-      range.getUpper(),
+      range.upper(),
       range_name);
     assert message != null;
     throw new RangeCheckException(message);
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is less than
-   * {@code in_upper} (named {@code upper_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than {@code
+   * in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -437,8 +435,8 @@ import java.math.BigInteger;
     final long in_upper,
     final String upper_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(upper_name, "Upper bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(upper_name, "Upper bound name");
 
     if (x < in_upper) {
       return x;
@@ -451,8 +449,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is less than
-   * {@code in_upper} (named {@code upper_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than {@code
+   * in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -470,8 +468,8 @@ import java.math.BigInteger;
     final int in_upper,
     final String upper_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(upper_name, "Upper bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(upper_name, "Upper bound name");
 
     if (x < in_upper) {
       return x;
@@ -484,8 +482,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is less than
-   * {@code in_upper} (named {@code upper_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than {@code
+   * in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -501,10 +499,10 @@ import java.math.BigInteger;
     final BigInteger in_upper,
     final String upper_name)
   {
-    NullCheck.notNull(x, "Value");
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(in_upper, "Upper");
-    NullCheck.notNull(upper_name, "Upper bound name");
+    Objects.requireNonNull(x, "Value");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(in_upper, "Upper");
+    Objects.requireNonNull(upper_name, "Upper bound name");
 
     if (x.compareTo(in_upper) < 0) {
       return x;
@@ -517,8 +515,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is less than
-   * {@code in_upper} (named {@code upper_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than {@code
+   * in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -534,8 +532,8 @@ import java.math.BigInteger;
     final double in_upper,
     final String upper_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(upper_name, "Upper bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(upper_name, "Upper bound name");
 
     if (x < in_upper) {
       return x;
@@ -548,8 +546,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is less than or
-   * equal to {@code in_upper} (named {@code upper_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than or equal to
+   * {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -567,8 +565,8 @@ import java.math.BigInteger;
     final long in_upper,
     final String upper_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(upper_name, "Upper bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(upper_name, "Upper bound name");
 
     if (x <= in_upper) {
       return x;
@@ -581,8 +579,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is less than or
-   * equal to {@code in_upper} (named {@code upper_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than or equal to
+   * {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -600,8 +598,8 @@ import java.math.BigInteger;
     final int in_upper,
     final String upper_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(upper_name, "Upper bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(upper_name, "Upper bound name");
 
     if (x <= in_upper) {
       return x;
@@ -614,8 +612,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is less than or
-   * equal to {@code in_upper} (named {@code upper_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than or equal to
+   * {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -631,10 +629,10 @@ import java.math.BigInteger;
     final BigInteger in_upper,
     final String upper_name)
   {
-    NullCheck.notNull(x, "Value");
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(in_upper, "Upper");
-    NullCheck.notNull(upper_name, "Upper bound name");
+    Objects.requireNonNull(x, "Value");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(in_upper, "Upper");
+    Objects.requireNonNull(upper_name, "Upper bound name");
 
     if (x.compareTo(in_upper) <= 0) {
       return x;
@@ -647,8 +645,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code x} (named {@code x_name}) is less than or
-   * equal to {@code in_upper} (named {@code upper_name}). </p>
+   * <p> Assert that {@code x} (named {@code x_name}) is less than or equal to
+   * {@code in_upper} (named {@code upper_name}). </p>
    *
    * @param x          The checked value
    * @param in_upper   The upper bound
@@ -664,8 +662,8 @@ import java.math.BigInteger;
     final double in_upper,
     final String upper_name)
   {
-    NullCheck.notNull(x_name, "Value name");
-    NullCheck.notNull(upper_name, "Upper bound name");
+    Objects.requireNonNull(x_name, "Value name");
+    Objects.requireNonNull(upper_name, "Upper bound name");
 
     if (x <= in_upper) {
       return x;
@@ -678,9 +676,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code inner} (named {@code inner_name}) is
-   * included in the given range {@code outer} (named
-   * {@code outer_name}). </p>
+   * <p> Assert that {@code inner} (named {@code inner_name}) is included in the
+   * given range {@code outer} (named {@code outer_name}). </p>
    *
    * @param inner      The checked range
    * @param inner_name The name of the checked range
@@ -698,10 +695,10 @@ import java.math.BigInteger;
     final RangeInclusiveL outer,
     final String outer_name)
   {
-    NullCheck.notNull(inner, "Inner range");
-    NullCheck.notNull(inner_name, "Inner range name");
-    NullCheck.notNull(outer, "Outer range");
-    NullCheck.notNull(outer_name, "Outer range name");
+    Objects.requireNonNull(inner, "Inner range");
+    Objects.requireNonNull(inner_name, "Inner range name");
+    Objects.requireNonNull(outer, "Outer range");
+    Objects.requireNonNull(outer_name, "Outer range name");
 
     if (inner.isIncludedIn(outer)) {
       return inner;
@@ -718,9 +715,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code inner} (named {@code inner_name}) is
-   * included in the given range {@code outer} (named
-   * {@code outer_name}). </p>
+   * <p> Assert that {@code inner} (named {@code inner_name}) is included in the
+   * given range {@code outer} (named {@code outer_name}). </p>
    *
    * @param inner      The checked range
    * @param inner_name The name of the checked range
@@ -738,10 +734,10 @@ import java.math.BigInteger;
     final RangeInclusiveI outer,
     final String outer_name)
   {
-    NullCheck.notNull(inner, "Inner range");
-    NullCheck.notNull(inner_name, "Inner range name");
-    NullCheck.notNull(outer, "Outer range");
-    NullCheck.notNull(outer_name, "Outer range name");
+    Objects.requireNonNull(inner, "Inner range");
+    Objects.requireNonNull(inner_name, "Inner range name");
+    Objects.requireNonNull(outer, "Outer range");
+    Objects.requireNonNull(outer_name, "Outer range name");
 
     if (inner.isIncludedIn(outer)) {
       return inner;
@@ -758,9 +754,8 @@ import java.math.BigInteger;
   }
 
   /**
-   * <p> Assert that {@code inner} (named {@code inner_name}) is
-   * included in the given range {@code outer} (named
-   * {@code outer_name}). </p>
+   * <p> Assert that {@code inner} (named {@code inner_name}) is included in the
+   * given range {@code outer} (named {@code outer_name}). </p>
    *
    * @param inner      The checked range
    * @param inner_name The name of the checked range
@@ -776,10 +771,10 @@ import java.math.BigInteger;
     final RangeInclusiveB outer,
     final String outer_name)
   {
-    NullCheck.notNull(inner, "Inner range");
-    NullCheck.notNull(inner_name, "Inner range name");
-    NullCheck.notNull(outer, "Outer range");
-    NullCheck.notNull(outer_name, "Outer range name");
+    Objects.requireNonNull(inner, "Inner range");
+    Objects.requireNonNull(inner_name, "Inner range name");
+    Objects.requireNonNull(outer, "Outer range");
+    Objects.requireNonNull(outer_name, "Outer range name");
 
     if (inner.isIncludedIn(outer)) {
       return inner;

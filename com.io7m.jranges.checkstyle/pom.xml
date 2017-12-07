@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.io7m.jranges</groupId>
     <artifactId>com.io7m.jranges</artifactId>
-    <version>2.0.4</version>
+    <version>3.0.0</version>
   </parent>
   <artifactId>com.io7m.jranges.checkstyle</artifactId>
 
@@ -16,15 +16,5 @@
   <name>com.io7m.jranges.checkstyle</name>
   <description>Range handling (Checkstyle policy)</description>
   <url>http://io7m.github.io/jranges/</url>
-
-  <properties>
-    <io7m.api.previousArtifactId>io7m-jranges-checkstyle</io7m.api.previousArtifactId>
-  </properties>
-
-  <scm>
-    <url>${project.parent.scm.url}</url>
-    <connection>${project.parent.scm.connection}</connection>
-    <developerConnection>${project.parent.scm.developerConnection}</developerConnection>
-  </scm>
 
 </project>
