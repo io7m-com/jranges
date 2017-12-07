@@ -16,38 +16,14 @@
 
 package com.io7m.jranges.documentation;
 
-import java.util.Objects;
-import com.io7m.junreachable.UnreachableCodeException;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Objects;
-
 /**
- * Functions for retrieving the documentation.
+ * Documentation marker class.
  */
 
-public final class RDocumentation
+public final class Documentation
 {
-  private RDocumentation()
+  private Documentation()
   {
-    throw new UnreachableCodeException();
-  }
 
-  /**
-   * @return The URI of the XML documentation file
-   */
-
-  public static URI getDocumentationXMLLocation()
-  {
-    try {
-      final URL url = RDocumentation.class.getResource(
-        "/com/io7m/jranges/documentation/documentation.xml");
-      assert url != null;
-      return Objects.requireNonNull(url.toURI());
-    } catch (final URISyntaxException e) {
-      throw new AssertionError(e);
-    }
   }
 }

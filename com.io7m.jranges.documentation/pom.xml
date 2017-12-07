@@ -23,8 +23,16 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.io7m.junreachable</groupId>
-      <artifactId>com.io7m.junreachable.core</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>com.io7m.jranges.core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.immutables</groupId>
+      <artifactId>value</artifactId>
+      <version>${io7m.org.immutables.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
