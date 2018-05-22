@@ -16,6 +16,7 @@
 
 package com.io7m.jranges;
 
+import com.io7m.immutables.styles.ImmutablesStyleType;
 import org.immutables.value.Value;
 
 import java.util.Objects;
@@ -24,7 +25,7 @@ import java.util.Objects;
  * An inclusive range with {@code double} components.
  */
 
-@RangeImmutableStyleType
+@ImmutablesStyleType
 @Value.Immutable
 public interface RangeInclusiveDType
 {
