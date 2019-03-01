@@ -7,6 +7,11 @@
       <Class name="com.io7m.jranges.RangeInclusiveD"/>
       <Class name="com.io7m.jranges.RangeInclusiveI"/>
       <Class name="com.io7m.jranges.RangeInclusiveL"/>
+
+      <Class name="com.io7m.jranges.RangeHalfOpenB"/>
+      <Class name="com.io7m.jranges.RangeHalfOpenD"/>
+      <Class name="com.io7m.jranges.RangeHalfOpenI"/>
+      <Class name="com.io7m.jranges.RangeHalfOpenL"/>
     </Or>
   </Match>
 

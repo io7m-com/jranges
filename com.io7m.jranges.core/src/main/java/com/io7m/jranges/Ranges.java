@@ -26,8 +26,8 @@ import com.io7m.junreachable.UnreachableCodeException;
 public final class Ranges
 {
   /**
-   * The inclusive range of numbers greater than or equal to {@code 0}, {@code
-   * [0, {@link Double#MAX_VALUE}]}.
+   * The inclusive range of numbers greater than or equal to {@code 0}, {@code [0, {@link
+   * Double#MAX_VALUE}]}.
    *
    * @since 2.0.0
    */
@@ -35,8 +35,7 @@ public final class Ranges
   public static final RangeInclusiveD NATURAL_DOUBLE;
 
   /**
-   * The inclusive range of natural long integers, {@code [0, {@link
-   * Long#MAX_VALUE}]}.
+   * The inclusive range of natural long integers, {@code [0, {@link Long#MAX_VALUE}]}.
    *
    * @since 2.0.0
    */
@@ -44,8 +43,7 @@ public final class Ranges
   public static final RangeInclusiveL NATURAL_LONG;
 
   /**
-   * The inclusive range of natural  integers, {@code [0, {@link
-   * Integer#MAX_VALUE}]}.
+   * The inclusive range of natural  integers, {@code [0, {@link Integer#MAX_VALUE}]}.
    *
    * @since 2.0.0
    */
@@ -53,8 +51,8 @@ public final class Ranges
   public static final RangeInclusiveI NATURAL_INTEGER;
 
   /**
-   * The inclusive range of numbers greater than or equal to {@code 1}, {@code
-   * [1, {@link Double#MAX_VALUE}]}.
+   * The inclusive range of numbers greater than or equal to {@code 1}, {@code [1, {@link
+   * Double#MAX_VALUE}]}.
    *
    * @since 2.0.0
    */
@@ -62,8 +60,7 @@ public final class Ranges
   public static final RangeInclusiveD POSITIVE_DOUBLE;
 
   /**
-   * The inclusive range of positive long integers, {@code [1, {@link
-   * Long#MAX_VALUE}]}.
+   * The inclusive range of positive long integers, {@code [1, {@link Long#MAX_VALUE}]}.
    *
    * @since 2.0.0
    */
@@ -71,8 +68,7 @@ public final class Ranges
   public static final RangeInclusiveL POSITIVE_LONG;
 
   /**
-   * The inclusive range of positive  integers, {@code [1, {@link
-   * Integer#MAX_VALUE}]}.
+   * The inclusive range of positive  integers, {@code [1, {@link Integer#MAX_VALUE}]}.
    *
    * @since 2.0.0
    */

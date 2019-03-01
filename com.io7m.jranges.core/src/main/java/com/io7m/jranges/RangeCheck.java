@@ -1,10 +1,10 @@
 /*
  * Copyright © 2015 <code@io7m.com> http://io7m.com
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
@@ -23,11 +23,10 @@ import java.util.Objects;
 
 /**
  * <p> Functions for enforcing range constraints at run time. </p> <p> The
- * functions are intended for use in the manner of assertions. That is, the
- * program should behave identically if all of the checks are removed. The
- * functions raise {@link RangeCheckException} upon failure. Exceptions of this
- * type are <i>not</i> intended to be caught and handled; they indicate program
- * bugs. </p>
+ * functions are intended for use in the manner of assertions. That is, the program should behave
+ * identically if all of the checks are removed. The functions raise {@link RangeCheckException}
+ * upon failure. Exceptions of this type are <i>not</i> intended to be caught and handled; they
+ * indicate program bugs. </p>
  *
  * @see RangeCheckException
  */
@@ -66,7 +65,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%d) <= %s (%d)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
@@ -99,7 +98,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%d) <= %s (%d)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
@@ -132,7 +131,7 @@ public final class RangeCheck
       return x;
     }
 
-    final String message =
+    final var message =
       String.format("%s (%s) <= %s (%s)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
@@ -163,7 +162,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%f) <= %s (%f)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
@@ -196,7 +195,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%d) < %s (%d)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
@@ -229,7 +228,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%d) < %s (%d)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
@@ -262,7 +261,7 @@ public final class RangeCheck
       return x;
     }
 
-    final String message =
+    final var message =
       String.format("%s (%s) < %s (%s)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
@@ -293,7 +292,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%f) < %s (%f)", x_name, x, lower_name, in_lower);
     assert message != null;
     throw new RangeCheckException(message);
@@ -327,7 +326,7 @@ public final class RangeCheck
       return x;
     }
 
-    final String message = String.format(
+    final var message = String.format(
       "%s <= %s (%s) <= %s (%s) == false",
       Long.valueOf(range.lower()),
       x_name,
@@ -366,7 +365,7 @@ public final class RangeCheck
       return x;
     }
 
-    final String message = String.format(
+    final var message = String.format(
       "%s <= %s (%s) <= %s (%s) == false",
       Integer.valueOf(range.lower()),
       x_name,
@@ -404,7 +403,7 @@ public final class RangeCheck
       return x;
     }
 
-    final String message = String.format(
+    final var message = String.format(
       "%s <= %s (%s) <= %s (%s) == false",
       range.lower(),
       x_name,
@@ -442,7 +441,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%d) >= %s (%d)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
@@ -475,7 +474,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%d) >= %s (%d)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
@@ -508,7 +507,7 @@ public final class RangeCheck
       return x;
     }
 
-    final String message =
+    final var message =
       String.format("%s (%s) >= %s (%s)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
@@ -539,7 +538,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%f) >= %s (%f)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
@@ -572,7 +571,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%d) > %s (%d)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
@@ -605,7 +604,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%d) > %s (%d)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
@@ -638,7 +637,7 @@ public final class RangeCheck
       return x;
     }
 
-    final String message =
+    final var message =
       String.format("%s (%s) > %s (%s)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
@@ -669,7 +668,7 @@ public final class RangeCheck
       return x;
     }
 
-    @SuppressWarnings("boxing") final String message =
+    @SuppressWarnings("boxing") final var message =
       String.format("%s (%f) > %s (%f)", x_name, x, upper_name, in_upper);
     assert message != null;
     throw new RangeCheckException(message);
@@ -704,7 +703,7 @@ public final class RangeCheck
       return inner;
     }
 
-    final String message = String.format(
+    final var message = String.format(
       "Inner range %s (%s) not included in outer range %s (%s)",
       inner_name,
       inner,
@@ -743,7 +742,7 @@ public final class RangeCheck
       return inner;
     }
 
-    final String message = String.format(
+    final var message = String.format(
       "Inner range %s (%s) not included in outer range %s (%s)",
       inner_name,
       inner,
@@ -780,7 +779,7 @@ public final class RangeCheck
       return inner;
     }
 
-    final String message = String.format(
+    final var message = String.format(
       "Inner range %s (%s) not included in outer range %s (%s)",
       inner_name,
       inner,

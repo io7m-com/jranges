@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017 <code@io7m.com> http://io7m.com
+ * Copyright © 2019 Mark Raynsford <code@io7m.com> http://io7m.com
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -19,41 +19,42 @@ package com.io7m.jranges;
 import com.io7m.immutables.styles.ImmutablesStyleType;
 import org.immutables.value.Value;
 
-import java.math.BigInteger;
 import java.util.Objects;
 
 /**
- * An inclusive range with {@code BigInteger} components.
+ * A half open (inclusive lower, exclusive upper) range with {@code double} components.
+ *
+ * @since 4.0.0
  */
 
 @ImmutablesStyleType
 @Value.Immutable
-public interface RangeInclusiveBType
+public interface RangeHalfOpenDType
 {
   /**
    * @return The lower bound of the inclusive range.
    */
 
   @Value.Parameter
-  BigInteger lower();
+  double lower();
 
   /**
    * @return The upper bound of the inclusive range.
    */
 
   @Value.Parameter
-  BigInteger upper();
+  double upper();
 
   /**
-   * <p>Retrieve the number of values in the range {@code [lower, upper]}. That
-   * is, {@code (upper - lower) + 1}.<p>
+   * <p>Retrieve the number of values in the range {@code [lower, upper)}. That
+   * is, {@code (upper - lower)}.<p>
    *
    * @return The number of values in the range
    */
 
-  default BigInteger interval()
+  default double interval()
   {
-    return this.upper().subtract(this.lower()).add(BigInteger.ONE);
+    return this.upper() - this.lower();
   }
 
   /**
@@ -61,16 +62,14 @@ public interface RangeInclusiveBType
    *
    * @param value The given value
    *
-   * @return {@code true} iff {@code value &gt;= this.getLower() &amp;&amp; value &lt;=
+   * @return {@code true} iff {@code value &gt;= this.getLower() &amp;&amp; value &lt;
    * this.getUpper()} .
    */
 
   default boolean includesValue(
-    final BigInteger value)
+    final double value)
   {
-    Objects.requireNonNull(value, "Value");
-    return (value.compareTo(this.lower()) >= 0)
-      && (value.compareTo(this.upper()) <= 0);
+    return (value >= this.lower()) && (value < this.upper());
   }
 
   /**
@@ -83,11 +82,26 @@ public interface RangeInclusiveBType
    */
 
   default boolean isIncludedIn(
-    final RangeInclusiveB other)
+    final RangeHalfOpenD other)
   {
     Objects.requireNonNull(other, "Other range");
-    return (this.lower().compareTo(other.lower()) >= 0)
-      && (this.upper().compareTo(other.upper()) <= 0);
+    return (this.lower() >= other.lower()) && (this.upper() <= other.upper());
+  }
+
+  /**
+   * <p> Determine if the given range is included in this range. </p>
+   *
+   * @param other The given range
+   *
+   * @return {@code true} iff {@code this.getLower() &gt;= other.getLower() &amp;&amp;
+   * this.getUpper() &lt;= other.getUpper()} .
+   */
+
+  default boolean isIncludedIn(
+    final RangeInclusiveD other)
+  {
+    Objects.requireNonNull(other, "Other range");
+    return (this.lower() >= other.lower()) && (this.upper() <= other.upper());
   }
 
   /**
@@ -97,7 +111,7 @@ public interface RangeInclusiveBType
   @Value.Check
   default void checkPreconditions()
   {
-    RangeCheck.checkLessEqualBig(
+    RangeCheck.checkLessEqualDouble(
       this.lower(), "lower", this.upper(), "upper");
   }
 }

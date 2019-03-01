@@ -1,10 +1,10 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
- * 
+ * Copyright © 2019 Mark Raynsford <code@io7m.com> http://io7m.com
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
@@ -16,20 +16,17 @@
 
 package com.io7m.jranges.tests;
 
-import com.io7m.junreachable.UnreachableCodeException;
+import com.io7m.jranges.RangeCheckException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public final class TestUtilities
+public class RangeCheckExceptionTest
 {
-  private static final Object z = null;
-
-  private TestUtilities()
+  @Test
+  public void testOK()
   {
-    throw new UnreachableCodeException();
-  }
-
-  @SuppressWarnings({"null", "unchecked"})
-  static <A> A actuallyNull()
-  {
-    return (A) TestUtilities.z;
+    final var ex = new RangeCheckException("x", new RangeCheckException("y"));
+    Assertions.assertEquals("Range check failed: x", ex.getMessage());
+    Assertions.assertEquals("Range check failed: y", ex.getCause().getMessage());
   }
 }

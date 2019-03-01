@@ -50,7 +50,6 @@ public interface RangeInclusiveLType
    * @return The number of values in the range
    */
 
-  @Value.Derived
   default long interval()
   {
     return (this.upper() - this.lower()) + 1L;
@@ -61,8 +60,8 @@ public interface RangeInclusiveLType
    *
    * @param value The given value
    *
-   * @return {@code true} iff {@code value &gt;= this.getLower() &amp;&amp;
-   * value &lt;= this.getUpper()} .
+   * @return {@code true} iff {@code value &gt;= this.getLower() &amp;&amp; value &lt;=
+   * this.getUpper()} .
    */
 
   default boolean includesValue(
@@ -76,8 +75,8 @@ public interface RangeInclusiveLType
    *
    * @param other The given range
    *
-   * @return {@code true} iff {@code this.getLower() &gt;= other.getLower()
-   * &amp;&amp; this.getUpper() &lt;= other.getUpper()} .
+   * @return {@code true} iff {@code this.getLower() &gt;= other.getLower() &amp;&amp;
+   * this.getUpper() &lt;= other.getUpper()} .
    */
 
   default boolean isIncludedIn(
