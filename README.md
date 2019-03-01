@@ -6,6 +6,6 @@ jranges
 [![Codacy grade](https://img.shields.io/codacy/grade/a35ed41cc7ce407cac51f1b37e974fe1.png?style=flat-square)](https://www.codacy.com/app/github_79/jranges)
 [![Codecov](https://img.shields.io/codecov/c/github/io7m/jranges.png?style=flat-square)](https://codecov.io/gh/io7m/jranges)
 
-See https://io7m.github.io/jranges/ for more information.
+See https://www.io7m.com/software/jranges/ for more information.
 
 ![jranges](./src/site/resources/jranges.jpg?raw=true)

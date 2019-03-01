@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter xmlns="https://github.com/spotbugs/filter/3.0.0">
+
+  <Match>
+    <Or>
+      <Class name="com.io7m.jranges.RangeInclusiveB"/>
+      <Class name="com.io7m.jranges.RangeInclusiveD"/>
+      <Class name="com.io7m.jranges.RangeInclusiveI"/>
+      <Class name="com.io7m.jranges.RangeInclusiveL"/>
+
+      <Class name="com.io7m.jranges.RangeHalfOpenB"/>
+      <Class name="com.io7m.jranges.RangeHalfOpenD"/>
+      <Class name="com.io7m.jranges.RangeHalfOpenI"/>
+      <Class name="com.io7m.jranges.RangeHalfOpenL"/>
+    </Or>
+  </Match>
+
+  <Match>
+    <Or>
+      <Bug pattern="IMC_IMMATURE_CLASS_NO_TOSTRING"/>
+      <Bug pattern="OPM_OVERLY_PERMISSIVE_METHOD"/>
+      <Bug pattern="DRE_DECLARED_RUNTIME_EXCEPTION"/>
+      <Bug pattern="FCCD_FIND_CLASS_CIRCULAR_DEPENDENCY"/>
+    </Or>
+  </Match>
+
+</FindBugsFilter>

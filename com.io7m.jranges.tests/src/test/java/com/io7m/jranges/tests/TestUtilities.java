@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 <code@io7m.com> http://io7m.com
+ * Copyright © 2014 <code@io7m.com> http://io7m.com
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -14,16 +14,22 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-/**
- * Documentation.
- */
+package com.io7m.jranges.tests;
 
-module com.io7m.jranges.documentation
+import com.io7m.junreachable.UnreachableCodeException;
+
+public final class TestUtilities
 {
-  requires static org.immutables.value;
-  requires static com.io7m.immutables.style;
+  private static final Object z = null;
 
-  requires com.io7m.jranges.core;
+  private TestUtilities()
+  {
+    throw new UnreachableCodeException();
+  }
 
-  exports com.io7m.jranges.documentation;
+  @SuppressWarnings({"null", "unchecked"})
+  static <A> A actuallyNull()
+  {
+    return (A) TestUtilities.z;
+  }
 }
