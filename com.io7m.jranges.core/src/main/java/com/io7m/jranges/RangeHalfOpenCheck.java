@@ -74,7 +74,7 @@ public final class RangeHalfOpenCheck
       Long.valueOf(x),
       Long.valueOf(range.upper()),
       range_name);
-    assert message != null;
+
     throw new RangeCheckException(message);
   }
 
@@ -113,7 +113,7 @@ public final class RangeHalfOpenCheck
       Integer.valueOf(x),
       Integer.valueOf(range.upper()),
       range_name);
-    assert message != null;
+
     throw new RangeCheckException(message);
   }
 
@@ -151,7 +151,7 @@ public final class RangeHalfOpenCheck
       x,
       range.upper(),
       range_name);
-    assert message != null;
+
     throw new RangeCheckException(message);
   }
 
@@ -190,7 +190,7 @@ public final class RangeHalfOpenCheck
       inner,
       outer_name,
       outer);
-    assert message != null;
+
     throw new RangeCheckException(message);
   }
 
@@ -229,7 +229,7 @@ public final class RangeHalfOpenCheck
       inner,
       outer_name,
       outer);
-    assert message != null;
+
     throw new RangeCheckException(message);
   }
 
@@ -266,7 +266,7 @@ public final class RangeHalfOpenCheck
       inner,
       outer_name,
       outer);
-    assert message != null;
+
     throw new RangeCheckException(message);
   }
 }
