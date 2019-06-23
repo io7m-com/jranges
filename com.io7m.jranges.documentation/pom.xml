@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.io7m.jranges</groupId>
     <artifactId>com.io7m.jranges</artifactId>
-    <version>4.0.0</version>
+    <version>4.1.0-SNAPSHOT</version>
   </parent>
   <artifactId>com.io7m.jranges.documentation</artifactId>
 
