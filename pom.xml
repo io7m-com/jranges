@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
     <artifactId>com.io7m.primogenitor.full</artifactId>
-    <version>3.1.0</version>
+    <version>5.0.0</version>
   </parent>
 
   <groupId>com.io7m.jranges</groupId>
@@ -27,6 +27,7 @@
   </modules>
 
   <properties>
+    <com.codacy.id>a35ed41cc7ce407cac51f1b37e974fe1</com.codacy.id>
     <io7m.api.previousVersion>3.0.0</io7m.api.previousVersion>
     <io7m.org.immutables.version>2.7.5</io7m.org.immutables.version>
   </properties>
@@ -97,6 +98,11 @@
         <version>0.0.1</version>
       </dependency>
 
+      <dependency>
+        <groupId>com.io7m.primogenitor</groupId>
+        <artifactId>com.io7m.primogenitor.support</artifactId>
+        <version>5.0.0</version>
+      </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>

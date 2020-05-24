@@ -18,6 +18,7 @@
   <url>http://io7m.github.io/jranges/</url>
 
   <properties>
+    <bnd.baseline.skip>true</bnd.baseline.skip>
     <mdep.analyze.skip>true</mdep.analyze.skip>
   </properties>
 
