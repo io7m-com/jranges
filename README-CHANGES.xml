@@ -60,9 +60,9 @@
         <c:change compatible="false" date="2019-03-01T00:00:00+00:00" summary="Require JDK 11"/>
       </c:changes>
     </c:release>
-    <c:release date="2022-04-09T14:50:15+00:00" is-open="true" ticket-system="com.github.io7m.jranges" version="5.0.0">
+    <c:release date="2022-04-09T14:54:37+00:00" is-open="false" ticket-system="com.github.io7m.jranges" version="5.0.0">
       <c:changes>
-        <c:change compatible="false" date="2022-04-09T14:50:15+00:00" summary="Require JDK 17"/>
+        <c:change compatible="false" date="2022-04-09T00:00:00+00:00" summary="Require JDK 17"/>
       </c:changes>
     </c:release>
   </c:releases>
