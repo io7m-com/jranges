@@ -15,7 +15,7 @@
   <packaging>jar</packaging>
   <name>com.io7m.jranges.tests</name>
   <description>Range handling (Unit tests)</description>
-  <url>http://io7m.github.io/jranges/</url>
+  <url>https://www.io7m.com/software/jranges</url>
 
   <properties>
     <bnd.baseline.skip>true</bnd.baseline.skip>
