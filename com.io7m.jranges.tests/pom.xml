@@ -8,16 +8,17 @@
   <parent>
     <groupId>com.io7m.jranges</groupId>
     <artifactId>com.io7m.jranges</artifactId>
-    <version>4.0.0</version>
+    <version>5.0.0</version>
   </parent>
   <artifactId>com.io7m.jranges.tests</artifactId>
 
   <packaging>jar</packaging>
   <name>com.io7m.jranges.tests</name>
   <description>Range handling (Unit tests)</description>
-  <url>http://io7m.github.io/jranges/</url>
+  <url>https://www.io7m.com/software/jranges</url>
 
   <properties>
+    <bnd.baseline.skip>true</bnd.baseline.skip>
     <mdep.analyze.skip>true</mdep.analyze.skip>
   </properties>
 
