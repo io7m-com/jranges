@@ -68,6 +68,6 @@
   </c:releases>
   <c:ticket-systems>
     <c:ticket-system default="false" id="com.io7m.fossil.jranges" url="http://fossil.io7m.com/repo.cgi/io7m-jranges/tktview?name="/>
-    <c:ticket-system default="true" id="com.github.io7m.jranges" url="http://github.com/io7m/jranges/issues/"/>
+    <c:ticket-system default="true" id="com.github.io7m.jranges" url="http://www.github.com/io7m-com/jranges/issues/"/>
   </c:ticket-systems>
 </c:changelog>

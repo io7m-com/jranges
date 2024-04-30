@@ -40,9 +40,9 @@
   </licenses>
 
   <scm>
-    <url>https://github.com/io7m/jranges</url>
-    <connection>scm:git:https://github.com/io7m/jranges</connection>
-    <developerConnection>scm:git:https://github.com/io7m/jranges</developerConnection>
+    <url>https://www.github.com/io7m-com/jranges</url>
+    <connection>scm:git:https://www.github.com/io7m-com/jranges</connection>
+    <developerConnection>scm:git:https://www.github.com/io7m-com/jranges</developerConnection>
   </scm>
 
   <developers>
@@ -55,7 +55,7 @@
   </developers>
 
   <issueManagement>
-    <url>https://github.com/io7m/jranges/issues</url>
+    <url>https://www.github.com/io7m-com/jranges/issues</url>
     <system>GitHub Issues</system>
   </issueManagement>
 
@@ -73,7 +73,7 @@
 
   <ciManagement>
     <system>GitHub Actions</system>
-    <url>https://github.com/jranges/actions</url>
+    <url>https://www.github.com/io7m-com/jranges/actions</url>
   </ciManagement>
 
   <prerequisites>
