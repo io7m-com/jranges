@@ -4,7 +4,7 @@ jranges
 [![Maven Central](https://img.shields.io/maven-central/v/com.io7m.jranges/com.io7m.jranges.svg?style=flat-square)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.io7m.jranges%22)
 [![Maven Central (snapshot)](https://img.shields.io/nexus/s/com.io7m.jranges/com.io7m.jranges?server=https%3A%2F%2Fs01.oss.sonatype.org&style=flat-square)](https://s01.oss.sonatype.org/content/repositories/snapshots/com/io7m/jranges/)
 [![Codecov](https://img.shields.io/codecov/c/github/io7m-com/jranges.svg?style=flat-square)](https://codecov.io/gh/io7m-com/jranges)
-![Java Version](https://img.shields.io/badge/21-java?label=java&color=007fff)
+![Java Version](https://img.shields.io/badge/21-java?label=java&color=e6c35c)
 
 ![com.io7m.jranges](./src/site/resources/jranges.jpg?raw=true)
 
