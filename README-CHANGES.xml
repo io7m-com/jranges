@@ -60,14 +60,25 @@
         <c:change compatible="false" date="2019-03-01T00:00:00+00:00" summary="Require JDK 11"/>
       </c:changes>
     </c:release>
-    <c:release date="2022-04-09T14:54:37+00:00" is-open="false" ticket-system="com.github.io7m.jranges" version="5.0.0">
+    <c:release date="2022-04-09T00:00:00+00:00" is-open="false" ticket-system="com.github.io7m.jranges" version="5.0.0">
       <c:changes>
         <c:change compatible="false" date="2022-04-09T00:00:00+00:00" summary="Require JDK 17"/>
+      </c:changes>
+    </c:release>
+    <c:release date="2024-05-11T14:37:00+00:00" is-open="false" ticket-system="com.github.io7m.jranges" version="6.0.0">
+      <c:changes>
+        <c:change date="2024-04-19T00:00:00+00:00" summary="Update org.junit.jupiter:junit-jupiter-api:5.10.1 → 5.10.2."/>
+        <c:change date="2024-04-19T00:00:00+00:00" summary="Update org.junit.jupiter:junit-jupiter-engine:5.10.1 → 5.10.2."/>
+        <c:change date="2024-04-19T00:00:00+00:00" summary="Update nl.jqno.equalsverifier:equalsverifier:3.15.5 → 3.16.1."/>
+        <c:change date="2024-04-19T00:00:00+00:00" summary="Update org.immutables:value:2.10.0 → 2.10.1."/>
+        <c:change date="2024-04-19T00:00:00+00:00" summary="Update net.jqwik:jqwik:1.8.2 → 1.8.4."/>
+        <c:change date="2024-05-11T00:00:00+00:00" summary="Move to new organization."/>
+        <c:change compatible="false" date="2024-05-11T00:00:00+00:00" summary="Require JDK 21."/>
       </c:changes>
     </c:release>
   </c:releases>
   <c:ticket-systems>
     <c:ticket-system default="false" id="com.io7m.fossil.jranges" url="http://fossil.io7m.com/repo.cgi/io7m-jranges/tktview?name="/>
-    <c:ticket-system default="true" id="com.github.io7m.jranges" url="http://github.com/io7m/jranges/issues/"/>
+    <c:ticket-system default="true" id="com.github.io7m.jranges" url="http://www.github.com/io7m-com/jranges/issues/"/>
   </c:ticket-systems>
 </c:changelog>
